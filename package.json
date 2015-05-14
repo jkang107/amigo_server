@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "Itinerary file",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "Jinah Kang",
+  "license": "MIT",
+  "dependencies": {
+    "logfmt": "~1.1.2",
+    "express": "~4.7.1",
+    "body-parser": "~1.5.1",
+    "connect": "~3.1.0",
+    "cors": "~2.4.1",
+    "pg": "~3.4.1"
+  }
+}
