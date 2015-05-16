@@ -22,7 +22,6 @@ var mysql = require('mysql');
 var ejs= require('ejs');
 
 var client = mysql.createConnection({
-	
 	host    :'localhost',
     port : 3307,
     user: 'root',
@@ -180,3 +179,4 @@ var connectionString = process.env.DATABASE_URL || localConnection;
 
 */
 
+//mysql://be05c449ff5b47:bd71dc8a@us-cdbr-iron-east-02.cleardb.net/heroku_1a66ebb3671a1f8?reconnect=true
