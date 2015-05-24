@@ -67,25 +67,34 @@ app.post("/sendTravelInfo", function(req, res) {
 
     var curTime = req.body.time;
     var travelInfo = req.body.travelInfo;
-    var userInfo = req.body.userInfo;
-    var userId = userInfo.userId;
-    var travelType = userInfo.travel_type;
+    //var userInfo = req.body.userInfo;
+    var userId = travelInfo.userId;
+    var travelType = travelInfo.travel_type;
 
     var query;
     res.send("thank you client!");
 
     switch (travelType) {
         case "travelWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, comment) VALUES ('" + userId + "', '" + travelType + "', '" + userInfo.user_gender + "', '" + userInfo.user_age + "', '" + travelInfo.date_from + "', '" + travelInfo.date_to + "', '" + travelInfo.country_from + "', '" + travelInfo.comment + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, comment, kakao_thumbnail) VALUES ('" 
+                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.user_age + "', '" 
+                + travelInfo.when_from + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.comment + "', '" + travelInfo.thumbnail + "');");
             break;
         case "moveWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, country_to, city_from, city_to, transportation, comment) VALUES ('" + userId + "', '" + travelType + "', '" + userInfo.user_gender + "', '" + userInfo.user_age + "', '" + travelInfo.date_from + "', '" + travelInfo.country_from + "', '" + travelInfo.country_to + "', '" + travelInfo.city_from + "', '" + travelInfo.city_to + "', '" + travelInfo.transportation + "', '" + travelInfo.comment + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, country_to, city_from, city_to, transportation, comment, kakao_thumbnail) VALUES ('" 
+                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.user_age + "', '" + travelInfo.when_from + "', '" 
+                + travelInfo.country_from + "', '" + travelInfo.country_to + "', '" + travelInfo.city_from + "', '" + travelInfo.city_to + "', '" 
+                + travelInfo.transportation + "', '" + travelInfo.comment + "', '" + travelInfo.thumbnail + "');");
             break;
         case "tourWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, tour_name, comment) VALUES ('" + userId + "', '" + travelType + "', '" + userInfo.user_gender + "', '" + userInfo.user_age + "', '" + travelInfo.date_from + "', '" + travelInfo.date_to + "', '" + travelInfo.country_from + "', '" + travelInfo.tour_name + "', '" + travelInfo.comment + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, tour_name, comment, kakao_thumbnail) VALUES ('" 
+                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.user_age + "', '" + travelInfo.when_from 
+                + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.tour_name + "', '" + travelInfo.comment + "', '" + travelInfo.thumbnail + "');");
             break;
         case "foodWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, city_from, comment) VALUES ('" + userId + "', '" + travelType + "', '" + userInfo.user_gender + "', '" + userInfo.user_age + "', '" + travelInfo.date_from + "', '" + travelInfo.country_from + "', '" + travelInfo.city_from + "', '" + travelInfo.comment + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, city_from, comment, kakao_thumbnail) VALUES ('" 
+                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.user_age + "', '" + travelInfo.when_from 
+                + "', '" + travelInfo.country_from + "', '" + travelInfo.city_from + "', '" + travelInfo.comment + "', '" + travelInfo.thumbnail + "');");
             break;
     }
 
