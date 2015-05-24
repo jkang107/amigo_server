@@ -168,3 +168,21 @@ var connectionString = process.env.DATABASE_URL || localConnection;
 */
 
 //mysql://be05c449ff5b47:bd71dc8a@us-cdbr-iron-east-02.cleardb.net/heroku_1a66ebb3671a1f8?reconnect=true
+
+//var api_key = "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";
+var sendgrid = require('sendgrid')("jkang107", "wlsdk6427");
+//var sendgrid  = require('sendgrid')(api_user, api_key);
+
+
+app.post("/sendMail", function(req, res) {
+    sendgrid.send({
+      to:       'uresj3@naver.com',
+      from:     req.body.from,
+      subject:  'Hello Developer!',
+      text:     req.body.message,
+      fromname: req.body.name
+    }, function(err, json) {
+      if (err) { return console.error(err); }
+      console.log(json);
+    });
+});
