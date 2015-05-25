@@ -22,12 +22,11 @@ var mysql = require('mysql');
 var ejs = require('ejs');
 
 var client = mysql.createConnection({
-    /*host: 'localhost',*/
-    host:'us-cdbr-iron-east-02.cleardb.net',
-    //port: 3307,
-    user: process.env.DB_USER,
-    password: process.env.DB_PW,
-    database: 'heroku_1a66ebb3671a1f8'
+    host:process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || '3307',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PW || '0724',
+    database: process.env.DB_DATABASE || 'travel_buddy'
 });
 
 var port = Number(process.env.PORT || 5000);
