@@ -26,7 +26,7 @@ var client = mysql.createConnection({
     host:'us-cdbr-iron-east-02.cleardb.net',
     //port: 3307,
     user: process.env.DB_USER,
-    password: 'bd71dc8a',
+    password: process.env.DB_PW,
     database: 'heroku_1a66ebb3671a1f8'
 });
 
