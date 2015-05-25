@@ -25,8 +25,8 @@ var client = mysql.createConnection({
     /*host: 'localhost',*/
     host:'us-cdbr-iron-east-02.cleardb.net',
     //port: 3307,
-    user: '',
-    password: '',
+    user: 'be05c449ff5b47',
+    password: 'bd71dc8a',
     database: ''
 });
 
