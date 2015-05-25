@@ -118,7 +118,8 @@ app.post("/sendLoginInfo", function(req, res) {
 app.get("/getTravelList", function(req, res) {
     var query = client.query('select * from travel', function(err, rows) {
         console.log(rows);
-        res.json(rows);
+        res.send("DB code!!");
+        //res.json(rows);
     });
     console.log(query);
 });
