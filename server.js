@@ -7,7 +7,7 @@ var cors = require('cors');
 var app = express();
 var fs = require('fs');
 
-app.use(express.static(__dirname + '/index.html'));
+
 app.use(logfmt.requestLogger());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
