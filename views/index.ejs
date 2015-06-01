@@ -1,24 +1,546 @@
 <!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="en">
+<!--<![endif]-->
+
 <head>
-	<meta charset="UTF-8">
-	<title>Node Sample App</title>
-
-	<!-- CSS -->
-	<!-- load bootstrap and our own personal stylesheet -->
-	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="utf-8">
+    <title>Travel Buddy | 남미 여행, 동행 찾기</title>
+    <meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
+    <meta name="author" content="htmlcoder.me">
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="../public/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="../public/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Plugins -->
+    <link href="../public/css/animations.css" rel="stylesheet">
+    <!-- Worthy core CSS file -->
+    <link href="../public/css/style.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="../public/css/custom.css" rel="stylesheet">
+    <!-- JINAH SAMPLE-->
+    <!-- <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
+    <link href="../public/bootstrap/css/datepicker.css" rel="stylesheet">
+    <link href="../public/bootstrap/css/travelBuddy.css" rel="stylesheet">
+    <link href="../public/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../public/bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejugothic.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejuhallasan.css">
 </head>
-<body>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1>This Is Heroku Awesome!</h1>
-		<p>This is the sample of a tutorial on <a href="http://scotch.io">scotch.io</a></p>
-		<a href="http://scotch.io/tutorials/" class="btn btn-primary btn-lg">View the Tutorial</a>
-	</div>
-</div>
-	
+<body class="no-trans">
+    <!-- scrollToTop -->
+    <!-- ================ -->
+    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+    <!-- header start -->
+    <!-- ================ -->
+    <header class="header fixed clearfix navbar navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- header-left start -->
+                    <!-- ================ -->
+                    <div class="header-left clearfix">
+                        <!-- logo -->
+                        <div class="logo smooth-scroll">
+                            <a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
+                        </div>
+                        <!-- name-and-slogan -->
+                        <div class="site-name-and-slogan smooth-scroll">
+                            <div class="site-name"><a href="#banner">TravelBuddy</a></div>
+                            <div class="site-slogan"><a target="_blank">Alpha</a> Version</div>
+                        </div>
+                    </div>
+                    <!-- header-left end -->
+                </div>
+                <div class="col-md-8">
+                    <!-- header-right start -->
+                    <!-- ================ -->
+                    <div class="header-right clearfix">
+                        <!-- main-navigation start -->
+                        <!-- ================ -->
+                        <div class="main-navigation animated">
+                            <!-- navbar start -->
+                            <!-- ================ -->
+                            <nav class="navbar navbar-default" role="navigation">
+                                <div class="container-fluid">
+                                    <!-- Toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav navmenu-fixed-left offcanvas">
+                                            <li class="active"><a href="#banner">홈</a></li>
+                                            <li><a id='viewList' href="#about">여행 친구 찾기</a></li>
+                                            <!-- <li><a href="#services">Services</a></li> -->
+                                            <li><a href="#contact">개발자에게 힘 보태기</a></li>
+                                            <li id='login_container' class="dropdown"><a id='login_name' onclick="javascript:popupLoginWindow()" ontouchstart="javascript:popupLoginWindow()">로그인</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- navbar end -->
+                        </div>
+                        <!-- main-navigation end -->
+                    </div>
+                    <!-- header-right end -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+    <!-- banner start -->
+    <!-- ================ -->
+    <div id="banner" class="banner">
+        <div class="banner-image"></div>
+        <div class="banner-caption">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 object-non-visible" data-animation-effect="fadeIn">
+                        <h1 class="text-center">Find your <span>Travel Buddy</span></h1>
+                        <p class="lead text-center">Hola, Hello, 안녕! </p>
+                        <div id='firstPage_btn_container' style="text-align:center;">
+                            <button id='newTravelBtn' type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#createTravel">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 동행 구하기
+                            </button>
+                            <button type="button" id='findBuddy' class="btn-default btn-lg">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 동행 찾기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- login star -->
+                <div id='login_container'>
+                    <div id='login_fade'></div>
+                    <div id='login'>
+                        <div class='login_text'>카카오톡으로 로그인하기</div>
+                        <a id="kakao-login-btn"></a>
+                        <button id='login_close_btn' type="button" class="btn btn-default login_close">다음에 할께요</button>
+                    </div>
+                </div>
+
+                <!-- login end -->
+                <!-- travel form start -->
+                <!-- Modal -->
+                <div class="modal fade " id="createTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content" class='modal_style'>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">NEW</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Step 1. Select travel type</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                    <div id='travel_type' class="btn-group col-lg-12" data-toggle="buttons">
+                                        <label id="travelWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6 active">
+                                            <input type="radio" name="options" autocomplete="off">
+                                            <image id="travelWith" src='../public/bootstrap/images/travel_man_64.png' width='55' height='55' /> 같이 여행해요
+                                        </label>
+                                        <label id="moveWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
+                                            <input type="radio" name="options" id="moveWith" autocomplete="off">
+                                            <image id='moveWith' src='../public/bootstrap/images/taxi_64.png' width='55' height='55' /> 같이 이동해요
+                                        </label>
+                                        <label id="tourWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
+                                            <input type="radio" name="options" autocomplete="off">
+                                            <image id="tourWith" src='../public/bootstrap/images/biking_64.png' width='55' height='55' /> 같이 떠나요
+                                        </label>
+                                        <label id="foodWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
+                                            <input type="radio" name="options" id="foodWith" autocomplete="off">
+                                            <image id="foodWith" src='../public/bootstrap/images/food_64.png' width='55' height='55' /> 같이 식사해요
+                                        </label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Step 2. About you</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class='btn-group panel_body_padding col-lg-4 col-xs-12'>
+                                        <label class='col-lg-3 col-xs-3 margin_label'>카카오톡 ID</label>
+                                                                            <input type="text" id="kakaoID" class="form-control col-lg-7 col-xs-8" placeholder="연락받으실 카톡 ID">
+                                    </div>
+                                    <div id='client_gender' class="btn-group col-lg-3 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
+                                        <label class='col-lg-2 col-xs-3 margin_label'>성별</label>
+                                        <label class="btn btn-default btn_form col-lg-4 col-xs-4 active">
+                                            <input type="radio" name="options" id="man" autocomplete="off" required>남자
+                                            <!-- <image src='./bootstrap/images/man_64.png' /> -->
+                                        </label>
+                                        <label class="btn btn-default btn_form col-lg-4 col-xs-4">
+                                            <input type="radio" name="options" id="woman" autocomplete="off">여자
+                                            <!-- <image src='./bootstrap/images/woman_64.png' /> -->
+                                        </label>
+                                    </div>
+                                    <div id='client_age' class="btn-group col-lg-5 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
+                                        <label class='col-lg-2 col-xs-3 margin_label'>나이대</label>
+                                        <label class="btn btn-default btn_form col-lg-2 active">
+                                            <input type="radio" name="options" id="age_10" value="10" autocomplete="off" required>10대
+                                        </label>
+                                        <label class="btn btn-default btn_form col-lg-2">
+                                            <input type="radio" name="options" id="age_20" autocomplete="off"> 20대
+                                        </label>
+                                        <label class="btn btn-default btn_form col-lg-2">
+                                            <input type="radio" name="options" id="age_30" autocomplete="off"> 30대
+                                        </label>
+                                        <label class="btn btn-default btn_form col-lg-2">
+                                            <input type="radio" name="options" id="age_40" autocomplete="off"> 40대
+                                        </label>
+                                        <label class="btn btn-default btn_form col-lg-2">
+                                            <input type="radio" name="options" id="age_50" autocomplete="off"> 50대~
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Step 3. About travel</h3>
+                                </div>
+                                <div id='type1_container' style='display:block;'>
+                                    <div class="panel-body datepicker-container-range">
+                                        <div class="form-group input-daterange">
+                                            <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행기간 </label>
+                                            <div class='col-lg-12 col-sm-12 col-xs-12 form-group'>
+                                                <div class='col-lg-6 col-sm-6 col-xs-6 panel_body_padding'>From:
+                                                    <input id='tour_date_from' data-provide="datepicker" name="start">
+                                                </div>
+                                                <div class='col-lg-6 col-sm-6 col-xs-6 panel_body_padding'>To:
+                                                    <input id='tour_date_to' data-provide="datepicker" name="end">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='country_body' class="panel-body">
+                                        <div class="form-group required">
+                                            <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행국가</label>
+                                            <div id='travel_country' class="btn-group col-lg-12 " data-toggle="buttons">
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">콜롬비아</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">에콰도르</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">페루</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">볼리비아</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">칠레</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">아르헨티나</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">브라질</button>
+                                                <button type="button" class="btn btn-default btn-lg col-lg-3 col-sm-4 col-xs-6">멕시코</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='comment_body' class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
+                                            <textarea id='travel_detail1' class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='type2_container' style='display:none;'>
+                                    <div id='city_body' class='panel-body'>
+                                        <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>이동정보 </label>
+                                        <div class="col-lg-12 col-sm-12 col-xs-12 form-group">
+                                            <div class='col-lg-3 col-sm-4 col-xs-12 panel_body_padding datepicker-container'>언제:
+                                                <input id='move_when'>
+                                            </div>
+                                            <div class='col-lg-1'></div>
+                                            <div class='col-lg-8'>
+                                                <div class="input-group col-lg-5 col-sm-4 col-xs-12" style="float:left;">
+                                                    <select id='move_from_country' class="selectpicker" title='국가'>
+                                                        <option>콜롬비아</option>
+                                                        <option>에콰도르</option>
+                                                        <option>페루</option>
+                                                        <option>볼리비아</option>
+                                                        <option>칠레</option>
+                                                        <option>아르헨티나</option>
+                                                        <option>브라질</option>
+                                                        <option>멕시코</option>
+                                                    </select>
+                                                    <input id="move_from" type="text" class="form-control" placeholder="출발 도시명" autocomplete="on">
+                                                </div>
+                                                <div class='col-lg-1'></div>
+                                                <div class="input-group col-lg-5 col-sm-4 col-xs-12" style="float:left;">
+                                                    <select id='move_to_country' class="selectpicker" title='국가'>
+                                                        <option>콜롬비아</option>
+                                                        <option>에콰도르</option>
+                                                        <option>페루</option>
+                                                        <option>볼리비아</option>
+                                                        <option>칠레</option>
+                                                        <option>아르헨티나</option>
+                                                        <option>브라질</option>
+                                                        <option>멕시코</option>
+                                                    </select>
+                                                    <input type="text" id="move_to" class="form-control" placeholder="도착 도시명" autocomplete="on">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='country_body' class="panel-body">
+                                        <div id="transportation_button" class="btn-group panel_body_padding col-lg-12 col-sm-12 col-xs-12" data-toggle="buttons">
+                                            <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>이동수단</label>
+                                            <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4 active">
+                                                <input type="radio" name="options" id="taxi" autocomplete="off">
+                                                <image src='../public/bootstrap/images/taxi-64.png' />
+                                            </label>
+                                            <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
+                                                <input type="radio" name="options" id="metro" autocomplete="off">
+                                                <image src='../public/bootstrap/images/rail_64.png' />
+                                            </label>
+                                            <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
+                                                <input type="radio" name="options" id="bus" autocomplete="off">
+                                                <image src='../public/bootstrap/images/bus-64.png' />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div id='comment_body' class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
+                                            <textarea id='travel_detail2' class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='type3_container' style='display:none;'>
+                                    <div class="panel-body datepicker-container-range">
+                                        <div class="form-group input-daterange">
+                                            <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행기간 </label>
+                                            <div class='col-lg-12 col-sm-12 col-xs-12 form-group'>
+                                                <div class='col-lg-6 col-sm-6 col-xs-6 panel_body_padding'>From:
+                                                    <input id='tour_date_from' data-provide="datepicker" name="start">
+                                                </div>
+                                                <div class='col-lg-6 col-sm-6 col-xs-6 panel_body_padding'>To:
+                                                    <input id='tour_date_to' data-provide="datepicker" name="end">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='tour_body' class="panel-body">
+                                        <div class="form-group">
+                                            <label class='margin_label'>투어/트레킹 명 </label>
+                                            <div class="input-group col-lg-12 col-sm-12 col-xs-12">
+                                                <select id='tour_contry' class="selectpicker" title='국가'>
+                                                    <option>콜롬비아</option>
+                                                    <option>에콰도르</option>
+                                                    <option>페루</option>
+                                                    <option>볼리비아</option>
+                                                    <option>칠레</option>
+                                                    <option>아르헨티나</option>
+                                                    <option>브라질</option>
+                                                    <option>멕시코</option>
+                                                </select>
+                                                <input type="text" id="tour_name" class="form-control" placeholder="ex) 우유니 투어, 토레스 델 파이네">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='comment_body' class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
+                                            <textarea id='travel_detail3' class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id='type4_container' style='display:none;'>
+                                    <div class="panel-body">
+                                        <div class="panel-body datepicker-container-range">
+                                            <div class="form-group input-daterange">
+                                                <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행기간 </label>
+                                                <div class='col-lg-12 col-sm-12 col-xs-12 form-group'>
+                                                    <div class='col-lg-6 col-sm-6 col-xs-6 panel_body_padding'>From:
+                                                        <input id='tour_date_from' data-provide="datepicker" name="start">
+                                                    </div>
+                                                    <div class='col-lg-6 col-sm-6 col-xs-6 panel_body_padding'>To:
+                                                        <input id='tour_date_to' data-provide="datepicker" name="end">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-6 col-sm-6 col-xs-6">
+                                            <label class='margin_label'>언제 </label>
+                                            <div class='panel_body_padding datepicker-container'>
+                                                <input id='food_when'>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-6 col-sm-6 col-xs-6">
+                                            <label class='margin_label'>어디서 </label>
+                                            <div class="input-group">
+                                                <select id="food_country" class="selectpicker" title='국가'>
+                                                    <option>콜롬비아</option>
+                                                    <option>에콰도르</option>
+                                                    <option>페루</option>
+                                                    <option>볼리비아</option>
+                                                    <option>칠레</option>
+                                                    <option>아르헨티나</option>
+                                                    <option>브라질</option>
+                                                    <option>멕시코</option>
+                                                </select>
+                                                <input type="text" id="food_city" class="form-control" placeholder="도시명" autocomplete="on">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='comment_body' class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
+                                            <textarea id='travel_detail4' class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id='submit_travel' type="button" class="btn btn-primary">등록하기</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- travel form end -->
+            </div>
+        </div>
+    </div>
+    <!-- banner end -->
+    <!-- section start -->
+    <!-- ================ -->
+    <div class="section clearfix bg-image-1 object-non-visible" data-animation-effect="fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <h1 id="about" class="title text-center col-xs-12">Find your <span>Travel Buddy!</span></h1>
+                    <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta officia, aspernatur.</p>
+                    <div class="space"></div>
+                    <!-- <h2>Becessitatibus quae beatae possimus ullam</h2> -->
+                    <div class="row">
+                        
+                        <!-- <div class="space"></div> -->
+                        <div class="col-md-4">
+                        <hr>
+                            <p class="lead text-center">F i l t e r</p>
+                        <hr>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ducimus explicabo quibusdam temporibus deserunt doloremque pariatur ea, animi a. Delectus similique atque eligendi, enim vel reiciendis deleniti neque aliquid, sit?</p> -->
+                            <div class='filter country text-center'>멕시코</div>
+                            <div class='filter country text-center'>콜롬비아</div>
+                            <div class='filter country text-center'>에콰도르</div>
+                            <div class='filter country text-center'>페루</div>
+                            <div class='filter country text-center'>볼리비아</div>
+                            <div class='filter country text-center'>칠레</div>
+                            <div class='filter country text-center'>아르헨티나</div>
+                            <div class='filter country text-center'>브라질</div>
+                        </div>
+                        <div id='travelList_container' class="col-md-8 smooth-scroll">
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section end -->
+    <!-- footer start -->
+    <!-- ================ -->
+    <footer id="footer">
+        <!-- .footer start -->
+        <!-- ================ -->
+        <div class="footer section">
+            <div class="container">
+                <h1 class="title text-center" id="contact">Contact Us</h1>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="footer-content">
+                            <p class="large">어떠한 의견, 질타, 칭찬 모두 환영합니다.</br> 이 서비스를 통해서 많은 배낭 여행자들이 안전하고 즐겁게 여행하길 바랍니다 :) </p>
+                            <ul class="list-icons">
+                                <li><i class="fa fa-map-marker pr-10"></i> Seoul, South Korea</li>
+                                <li><i class="fa fa-phone pr-10"></i> +82 1096688106</li>
+                                <!-- <li><i class="fa fa-fax pr-10"></i> +82 1096688106 </li> -->
+                                <li><i class="fa fa-envelope-o pr-10"></i> jkang107@gmail.com</li>
+                            </ul>
+                            <!-- <ul class="social-links">
+                                <li class="facebook"><a target="_blank" href="https://www.facebook.com/pages/HtmlCoder/714570988650168"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a target="_blank" href="https://twitter.com/HtmlcoderMe"><i class="fa fa-twitter"></i></a></li>
+                                <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+                                <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
+                                <li class="instagram"><a target="_blank" href="http://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="footer-content">
+                            <form role="form" id="footer-form">
+                                <div class="form-group has-feedback">
+                                    <label class="sr-only" for="name2">Name</label>
+                                    <input type="text" class="form-control" id="name2" placeholder="Name" name="name2" required>
+                                    <i class="fa fa-user form-control-feedback"></i>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label class="sr-only" for="email2">Email address</label>
+                                    <input type="email" class="form-control" id="email2" placeholder="Enter email" name="email2" required>
+                                    <i class="fa fa-envelope form-control-feedback"></i>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label class="sr-only" for="message2">Message</label>
+                                    <textarea class="form-control" rows="8" id="message2" placeholder="Message" name="message2" required></textarea>
+                                    <i class="fa fa-pencil form-control-feedback"></i>
+                                </div>
+                                <input id='sendMail' type="submit" value="Send" class="btn btn-default">
+                                <span id='receiveMsg'></spam>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .footer end -->
+        <!-- .subfooter start -->
+        <!-- ================ -->
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">Copyright © 2015 <a target="_blank" href="#">Jinah Kang</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .subfooter end -->
+    </footer>
+    <!-- footer end -->
+    <!-- JavaScript files placed at the end of the document so the pages load faster
+        ================================================== -->
+    <!-- Jquery and Bootstap core js files -->
+    <script type="text/javascript" src="../public/plugins/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Modernizr javascript -->
+    <script type="text/javascript" src="../public/plugins/modernizr.js"></script>
+    <!-- Isotope javascript -->
+    <script type="text/javascript" src="../public/plugins/isotope/isotope.pkgd.min.js"></script>
+    <!-- Backstretch javascript -->
+    <script type="text/javascript" src="../public/plugins/jquery.backstretch.min.js"></script>
+    <!-- Appear javascript -->
+    <script type="text/javascript" src="../public/plugins/jquery.appear.js"></script>
+    <!-- Initialization of Plugins -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+    <script type="text/javascript" src="../public/js/template.js"></script>
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="../public/js/custom.js"></script>
+    <!-- Kakao talk -->
+    <!-- Buddy Scripts -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="../public/js/buddy.js"></script>
+    <script type="text/javascript" src="../public/bootstrap/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="../public/bootstrap/js/bootstrap-select.min.js"></script>
 </body>
+
 </html>
