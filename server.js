@@ -18,6 +18,21 @@ app.use(cors());
 var mysql = require('mysql');
 var ejs = require('ejs');
 
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// make express look in the public directory for assets (css/js/img)
+app.use(express.static(__dirname + '/public'));
+
+// set the home page route
+app.get('/', function(req, res) {
+
+    // ejs render automatically looks in the views folder
+    res.render('index');
+});
+
+
 var client = mysql.createConnection({
     host:process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || '3307',
