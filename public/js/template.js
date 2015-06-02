@@ -11,6 +11,7 @@
     $(document).ready(function() {
 
         $(".banner-image").backstretch('images/DSC00605.JPG');
+        $(".banner-image.mylist-image").backstretch('images/portfolio-1.JPG');
 
         // Fixed header
         //-----------------------------------------------
@@ -144,7 +145,12 @@
         $("#kakaoLogin").on('click touchstart',function() {
             $("#kakao-login-btn").trigger('click');
         });
-        getTravelList();
+
+        if(window.location.pathname == "/mylist") {
+            getMyList();
+        } else {
+            getTravelList();
+        }
 
         $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
             /*if(event.target.className != "dropdown-toggle" && event.target.id != "findBuddy") {

@@ -245,6 +245,9 @@ blockquote {
 .bg-image-3 {
 	background: url("../images/IMG_1686.jpg") 50% 0px no-repeat;
 }
+.bg-image-4 {
+	background: url("../images/portfolio-1.jpg") 50% 0px no-repeat;
+}
 /* Misc
 ----------------------------------------------------------------------------- */
 .object-non-visible {
@@ -789,7 +792,7 @@ textarea {
 		margin-top: 100px;
 	}
 	#travelList_container {
-	  height: 600px;
+	  height: 610px;
 	  overflow-y:auto;
 	}
 	#login {
@@ -877,3 +880,12 @@ textarea {
 		margin-top: 40px;
 	}
 }	
+
+
+/*---------------- mylist -------------*/
+.banner-caption.mylist {
+	position: absolute;
+	top: 15%;
+	width: 100%;
+	z-index: 2;
+}

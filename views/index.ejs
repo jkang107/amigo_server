@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
+
 <html lang="en">
-<!--<![endif]-->
+
 
 <head>
     <meta charset="utf-8">
@@ -34,9 +33,16 @@
     <link href="bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejugothic.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejuhallasan.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
-<body class="no-trans">
+<body class="no-trans" onload='checkLoginStatus()'>
     <!-- scrollToTop -->
     <!-- ================ -->
     <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -121,6 +127,9 @@
                             <button type="button" id='findBuddy' class="btn-default btn-lg">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 동행 찾기
                             </button>
+                            <!-- <div id='logindghfghdfhg'>
+                            <a id="kakao-login-btn"></a>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -153,19 +162,19 @@
                                     <div id='travel_type' class="btn-group col-lg-12" data-toggle="buttons">
                                         <label id="travelWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6 active">
                                             <input type="radio" name="options" autocomplete="off">
-                                            <image id="travelWith" src='./bootstrap/images/travel_man_64.png' width='55' height='55' /> 같이 여행해요
+                                            <img id="travelWith" src='./bootstrap/images/travel_man_64.png' width='55' height='55' /> 같이 여행해요
                                         </label>
                                         <label id="moveWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
                                             <input type="radio" name="options" id="moveWith" autocomplete="off">
-                                            <image id='moveWith' src='./bootstrap/images/taxi_64.png' width='55' height='55' /> 같이 이동해요
+                                            <img id='moveWith' src='./bootstrap/images/taxi_64.png' width='55' height='55' /> 같이 이동해요
                                         </label>
                                         <label id="tourWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
                                             <input type="radio" name="options" autocomplete="off">
-                                            <image id="tourWith" src='./bootstrap/images/biking_64.png' width='55' height='55' /> 같이 떠나요
+                                            <img id="tourWith" src='./bootstrap/images/biking_64.png' width='55' height='55' /> 같이 떠나요
                                         </label>
                                         <label id="foodWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
                                             <input type="radio" name="options" id="foodWith" autocomplete="off">
-                                            <image id="foodWith" src='./bootstrap/images/food_64.png' width='55' height='55' /> 같이 식사해요
+                                            <img id="foodWith" src='./bootstrap/images/food_64.png' width='55' height='55' /> 같이 식사해요
                                         </label>
                                     </div>
                                 </div>
@@ -182,11 +191,11 @@
                                         <label class='col-lg-2 col-xs-3 margin_label'>성별</label>
                                         <label class="btn btn-default btn_form col-lg-4 col-xs-4 active">
                                             <input type="radio" name="options" id="man" autocomplete="off" required>남자
-                                            <!-- <image src='./bootstrap/images/man_64.png' /> -->
+                                            <!-- <img src='./bootstrap/images/man_64.png' /> -->
                                         </label>
                                         <label class="btn btn-default btn_form col-lg-4 col-xs-4">
                                             <input type="radio" name="options" id="woman" autocomplete="off">여자
-                                            <!-- <image src='./bootstrap/images/woman_64.png' /> -->
+                                            <!-- <img src='./bootstrap/images/woman_64.png' /> -->
                                         </label>
                                     </div>
                                     <div id='client_age' class="btn-group col-lg-5 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
@@ -291,15 +300,15 @@
                                             <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>이동수단</label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4 active">
                                                 <input type="radio" name="options" id="taxi" autocomplete="off">
-                                                <image src='./bootstrap/images/taxi-64.png' />
+                                                <img src='./bootstrap/images/taxi-64.png' />
                                             </label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
                                                 <input type="radio" name="options" id="metro" autocomplete="off">
-                                                <image src='./bootstrap/images/rail_64.png' />
+                                                <img src='./bootstrap/images/rail_64.png' />
                                             </label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
                                                 <input type="radio" name="options" id="bus" autocomplete="off">
-                                                <image src='./bootstrap/images/bus-64.png' />
+                                                <img src='./bootstrap/images/bus-64.png' />
                                             </label>
                                         </div>
                                     </div>
@@ -495,7 +504,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="footer-content">
-                            <p class="large">어떠한 의견, 질타, 칭찬 모두 환영합니다.</br> 이 서비스를 통해서 많은 배낭 여행자들이 안전하고 즐겁게 여행하길 바랍니다 :) </p>
+                            <p class="large">어떠한 의견, 질타, 칭찬 모두 환영합니다.<br/> 이 서비스를 통해서 많은 배낭 여행자들이 안전하고 즐겁게 여행하길 바랍니다 :) </p>
                             <ul class="list-icons">
                                 <li><i class="fa fa-map-marker pr-10"></i> Seoul, South Korea</li>
                                 <li><i class="fa fa-phone pr-10"></i> +82 1096688106</li>
@@ -532,7 +541,7 @@
                                     <i class="fa fa-pencil form-control-feedback"></i>
                                 </div>
                                 <input id='sendMail' type="submit" value="Send" class="btn btn-default">
-                                <span id='receiveMsg'></spam>
+                                <span id='receiveMsg'></span>
                             </form>
                         </div>
                     </div>

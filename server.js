@@ -32,6 +32,12 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+app.get('/mylist', function(req, res) {
+
+    // ejs render automatically looks in the views folder
+    res.render('mylist');
+});
+
 
 var client = mysql.createConnection({
     host:process.env.DB_HOST || 'localhost',
@@ -145,4 +151,15 @@ app.post("/sendMail", function(req, res) {
       if (err) { return console.error(err); }
       console.log(json);
     });
+});
+
+app.post("/getMyList", function(req, res) {
+    var userId = parseInt(req.body.kakaoid);
+    console.log("++++++userId: " + userId);
+    var queryString = 'select * from travel where userId = 22044723';
+    var query = client.query(queryString, function(err, rows) {
+        console.log(rows);
+        res.send(rows);
+    });
+    console.log(query);
 });

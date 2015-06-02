@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Travel Buddy | 남미 여행, 동행 찾기</title>
+    <meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
+    <meta name="author" content="htmlcoder.me">
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/logo.png">
+    <!-- Web Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Plugins -->
+    <link href="css/animations.css" rel="stylesheet">
+    <!-- Worthy core CSS file -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- JINAH SAMPLE-->
+    <!-- <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
+    <link href="bootstrap/css/datepicker.css" rel="stylesheet">
+    <link href="bootstrap/css/travelBuddy.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejugothic.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejuhallasan.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="no-trans" onload='checkLoginStatus()'>
+    <!-- scrollToTop -->
+    <!-- ================ -->
+    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+    <!-- header start -->
+    <!-- ================ -->
+    <header class="header fixed clearfix navbar navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- header-left start -->
+                    <!-- ================ -->
+                    <div class="header-left clearfix">
+                        <!-- logo -->
+                        <div class="logo smooth-scroll">
+                            <a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
+                        </div>
+                        <!-- name-and-slogan -->
+                        <div class="site-name-and-slogan smooth-scroll">
+                            <div class="site-name"><a href="#banner">TravelBuddy</a></div>
+                            <div class="site-slogan"><a target="_blank">Alpha</a> Version</div>
+                        </div>
+                    </div>
+                    <!-- header-left end -->
+                </div>
+                <div class="col-md-8">
+                    <!-- header-right start -->
+                    <!-- ================ -->
+                    <div class="header-right clearfix">
+                        <!-- main-navigation start -->
+                        <!-- ================ -->
+                        <div class="main-navigation animated">
+                            <!-- navbar start -->
+                            <!-- ================ -->
+                            <nav class="navbar navbar-default" role="navigation">
+                                <div class="container-fluid">
+                                    <!-- Toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav navmenu-fixed-left offcanvas">
+                                            <li class="active"><a href="#banner">홈</a></li>
+                                            <li><a id='viewList' href="#about">여행 친구 찾기</a></li>
+                                            <!-- <li><a href="#services">Services</a></li> -->
+                                            <li><a href="#contact">개발자에게 힘 보태기</a></li>
+                                            <li id='login_container' class="dropdown"><a id='login_name' onclick="javascript:popupLoginWindow()" ontouchstart="javascript:popupLoginWindow()">로그인</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- navbar end -->
+                        </div>
+                        <!-- main-navigation end -->
+                    </div>
+                    <!-- header-right end -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- body start -->
+    <div id="banner" class="banner">
+        <div class="banner-image mylist-image"></div>
+        <div class="banner-caption mylist">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 object-non-visible" data-animation-effect="fadeIn">
+                    <h1> <span>My list</span></h1>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- body end -->
+
+        <!-- .subfooter start -->
+        <!-- ================ -->
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">Copyright © 2015 <a target="_blank" href="#">Jinah Kang</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .subfooter end -->
+    </footer>
+    <!-- footer end -->
+    <!-- JavaScript files placed at the end of the document so the pages load faster
+        ================================================== -->
+    <!-- Jquery and Bootstap core js files -->
+    <script type="text/javascript" src="plugins/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Modernizr javascript -->
+    <script type="text/javascript" src="plugins/modernizr.js"></script>
+    <!-- Isotope javascript -->
+    <script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+    <!-- Backstretch javascript -->
+    <script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+    <!-- Appear javascript -->
+    <script type="text/javascript" src="plugins/jquery.appear.js"></script>
+    <!-- Initialization of Plugins -->
+    <script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+    <script type="text/javascript" src="js/template.js"></script>
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="js/custom.js"></script>
+    <!-- Kakao talk -->
+    <!-- Buddy Scripts -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="js/buddy.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-select.min.js"></script>
+</body>
+
+</html>

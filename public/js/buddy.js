@@ -65,7 +65,7 @@ function afterLogin(kakao_userInfo) {
     $("#login").css("display", "none");
     $("#login_container").addClass('dropdown dropdown-btn');
     $("#login_name").attr("data-toggle", "dropdown").addClass('dropdown-toggle').append("<b class='caret'></b>");
-    $("#login_container").append('<ul class="dropdown-menu"><li><a onclick="javascript:viewMyAccount()">내가 올린 글 보기</a></li><li class="divider"></li><li><a onclick="javascript:kakao_logout()">Logout</a></li></ul>');
+    $("#login_container").append('<ul class="dropdown-menu"><li><a href="/mylist">내가 올린 글 보기</a></li><li class="divider"></li><li><a onclick="javascript:kakao_logout()">Logout</a></li></ul>');
     if (isPressNewBtn) {
         $('#createTravel').css('z-index', '1040');
     }
@@ -93,7 +93,8 @@ function afterLogout() {
 }
 
 function viewMyAccount() {
-    $('.dropdown-menu').dropdown('toggle');
+    //$('.dropdown-menu').dropdown('toggle');
+    window.location.href = '/mylist';
 }
 function loginWithKakao() {
     /*// 로그인 창을 띄웁니다.
@@ -440,6 +441,9 @@ function getTravelList() {
         url: url,
         success: function(result) {
             console.log(result);
+            /*if(window.location.pathname == "/mylist") {
+
+            }*/ 
             numOfTravel = result.length;
             for (var i = 0; i < numOfTravel; i++) {
                 returnTravelType(result[i].type);
@@ -449,6 +453,22 @@ function getTravelList() {
         error: function(a, b) {
             console.log("error: " + a + b);
         }
+    });
+}
+
+function getMyList() {
+    var url = preURL + "/getMyList";
+
+    deferred = $.post(url, {
+        kakaoid: localStorage.getItem("id")
+    });
+    
+
+    deferred.success(function(e) {
+        console.log("Message from server : " + e);
+    });
+
+    deferred.error(function(e) {
     });
 }
 
@@ -473,3 +493,16 @@ $("input#sendMail").click(function() {
         event.preventDefault();*/
     });
 });
+
+function checkLoginStatus() {
+    if (localStorage.getItem("id") !== null && localStorage.getItem("thumbnail") !== null) {
+        $("#login_container").prepend('<img id="profil_img" src="' + localStorage.getItem("thumbnail") + '" class="img-circle profile">');
+        $("#login_name").text(localStorage.getItem("nickname"));
+        $("#login_name").css({
+            "float": "left",
+            "margin-left": "-13px"
+        });
+        $("#login_name").attr("data-toggle", "dropdown").addClass('dropdown-toggle').append("<b class='caret'></b>");
+        $("#login_container").append('<ul class="dropdown-menu"><li><a href="/mylist">내가 올린 글 보기</a></li><li class="divider"></li><li><a onclick="javascript:kakao_logout()">Logout</a></li></ul>');
+    }
+}
