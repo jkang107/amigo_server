@@ -1,7 +1,7 @@
 //var preURL = window.location.href.indexOf('8080') == -1 
     //? "http://amigo-server-.herokuapp.com"
     //: "http://localhost:5000";
-var preURL = "http://amigo-server-.herokuapp.com";
+var preURL = "amigo-server-.herokuapp.com";
 // kakaotalk
 
 // KAKAO TALK JavaScript Key
