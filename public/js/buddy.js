@@ -1,6 +1,6 @@
-//var preURL = window.location.href.indexOf('8080') == -1 
-    //? "http://amigo-server-.herokuapp.com"
-    //: "http://localhost:5000";
+/*var preURL = window.location.href.indexOf('5000') == -1 
+    ? "http://findyourtravelbuddy.herokuapp.com"
+    : "http://localhost:5000";*/
 
 var preURL = "http://findyourtravelbuddy.herokuapp.com";
 //var preURL = "";
@@ -306,10 +306,13 @@ function createNewObject(travel, count) {
 
     $("#accordion").prepend("<div id='object_" + count + "' class='panel panel-default " + panelStyle + "'></div>");
 
-    $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><h4 class='panel-title'><a data-toggle='collapse' id='heading_t_" + count + "' class='clipped' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></h4></div>");
+    $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
 
     $("#object_" + count).append("<div id='collapse_" + count + "' class='panel-collapse collapse' role='tabpanel' aria-labelledby='collapse_" + count + "'><div class='panel-body'>" + travel.comment + "</div></div>");
-
+    
+    /*if(isMyListPage) {
+        $("#object_" + count).append("<span class='delete-item glyphicon glyphicon-remove-circle' aria-hidden='true'></span>");
+    }*/
     var _object = $("#heading_t_" + count);
 
     //add kakaotalk
@@ -395,6 +398,15 @@ function createNewObject(travel, count) {
     }
 
 
+    if(isMyListPage) {
+        _object.append("<span id='delete_" + count+ "'class='delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
+        $("#delete_" + count).click(function(e) {
+            console.log(e.target);
+            var tmpIndex = parseInt(e.target.parentNode.attributes.index.value);
+            deleteItem(tmpIndex, parseInt(e.target.id.split("_")[1]));
+        });
+    }
+
     count++;
 }
 
@@ -414,6 +426,10 @@ function stampCurrentTime() {
 }
 
 function sendToServer(travelInfo) {
+    var target = document.getElementById('travelList_container');
+    var spinner = new Spinner().spin();
+    target.appendChild(spinner.el);
+
     var url = preURL + "/sendTravelInfo";
     deferred = $.post(url, {
         /*userInfo: userInfo,*/
@@ -422,11 +438,13 @@ function sendToServer(travelInfo) {
     });
 
     deferred.success(function(e) {
+        spinner.stop();
         console.log("Success Message from server : " + e);
         createNewObject(tmp_new_travel, numOfTravel);
     });
 
     deferred.error(function(e) {
+        spinner.stop();
         console.log("Error Message from server : " + e);
         // Handle any errors here.
     });
@@ -456,6 +474,10 @@ function getTravelList() {
 }
 
 function getMyList() {
+    var target = document.getElementById('travelList_container');
+    var spinner = new Spinner().spin();
+    target.appendChild(spinner.el);
+
     var url = preURL + "/getMyList";
 
     deferred = $.post(url, {
@@ -463,11 +485,49 @@ function getMyList() {
     });
     
 
-    deferred.success(function(e) {
-        console.log("Message from server : " + e);
+    deferred.success(function(result) {
+        spinner.stop();
+        console.log("Message from server : " + result);
+        numOfTravel = result.length;
+        isMyListPage = true;
+        for (var i = 0; i < numOfTravel; i++) {
+            returnTravelType(result[i].type);
+            createNewObject(result[i], i + 1);
+        }
     });
 
     deferred.error(function(e) {
+        spinner.stop();
+    });
+}
+
+function deleteItem(item, parentDivIndex) {
+    /*var target = document.getElementById("#object_" + parentDivIndex);
+    var spinner = new Spinner().spin();
+    target.appendChild(spinner.el);*/
+
+    var url = preURL + "/deleteItem";
+
+    deferred = $.post(url, {
+        index: item
+    });
+    
+
+    deferred.success(function(result) {
+        //spinner.stop();
+        console.log("Message from server : " + result);
+        /*numOfTravel = result.length;
+        isMyListPage = true;
+        for (var i = 0; i < numOfTravel; i++) {
+            returnTravelType(result[i].type);
+            createNewObject(result[i], i + 1);
+        }*/
+        //remove div
+        //$("#object_" + parentDivIndex).remove();
+    });
+
+    deferred.error(function(e) {
+        //spinner.stop();
     });
 }
 
@@ -493,6 +553,7 @@ $("input#sendMail").click(function() {
     });
 });
 
+var isMyListPage = false;
 function checkLoginStatus() {
     if (localStorage.getItem("id") !== null && localStorage.getItem("thumbnail") !== null) {
         isLogin = true;

@@ -168,6 +168,17 @@
             $("#travelList_container").css("height", listHeight);
         }
 
+        //spin.js
+        //-----------------------------------------------
+
+        /*var target = document.getElementById('travelList_container')
+        var spinner = new Spinner().spin()
+        target.appendChild(spinner.el);
+*/
+
+$("span.delete-item").click(function(e) {
+    console.log(e.target);
+});
     }); // End document ready
 
 })(this.jQuery);

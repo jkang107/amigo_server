@@ -132,6 +132,7 @@ app.post("/sendLoginInfo", function(req, res) {
 
 app.get("/getTravelList", function(req, res) {
     var query = client.query('select * from travel', function(err, rows) {
+        if (err) throw err;
         console.log(rows);
         res.send(rows);
     });
@@ -158,8 +159,20 @@ app.post("/getMyList", function(req, res) {
     //console.log("++++++userId: " + userId);
     var queryString = 'select * from travel where userId = ' + userId;
     var query = client.query(queryString, function(err, rows) {
+        if (err) throw err;
+
         console.log(rows);
         res.send(rows);
     });
     console.log(query);
 });
+
+app.post("/deleteItem", function(req,res) {
+    var index = req.body.index;
+    var queryString = 'delete from travel where `index` = ' + index;
+    var query = client.query(queryString, function(err, rows) {
+        if (err) throw err;
+        console.log(rows);
+        res.send(rows);
+    });
+})

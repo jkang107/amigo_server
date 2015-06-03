@@ -194,3 +194,13 @@ hr {
 #carousel-example-generic {
     margin-top: 20px;
 }
+
+.delete-item {
+  width: 50px;
+  float: right;
+  color: red;
+}
+
+.delete-item:hover{
+  color: #606060;
+}
