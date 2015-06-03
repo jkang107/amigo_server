@@ -14,7 +14,6 @@ Kakao.init('8153126b123d384678442ece2cfd1ed8');
 Kakao.Auth.createLoginButton({
     container: '#kakao-login-btn',
     success: function(authObj) {
-
         Kakao.API.request({
             url: '/v1/user/me',
             success: function(res) {
@@ -496,6 +495,7 @@ $("input#sendMail").click(function() {
 
 function checkLoginStatus() {
     if (localStorage.getItem("id") !== null && localStorage.getItem("thumbnail") !== null) {
+        isLogin = true;
         $("#login_container").prepend('<img id="profil_img" src="' + localStorage.getItem("thumbnail") + '" class="img-circle profile">');
         $("#login_name").text(localStorage.getItem("nickname"));
         $("#login_name").css({

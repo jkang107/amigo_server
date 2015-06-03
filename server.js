@@ -155,7 +155,7 @@ app.post("/sendMail", function(req, res) {
 
 app.post("/getMyList", function(req, res) {
     var userId = parseInt(req.body.kakaoid);
-    console.log("++++++userId: " + userId);
+    //console.log("++++++userId: " + userId);
     var queryString = 'select * from travel where userId = ' + userId;
     var query = client.query(queryString, function(err, rows) {
         console.log(rows);
