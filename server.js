@@ -138,7 +138,7 @@ app.get("/getTravelList", function(req, res) {
     console.log(query);
 });
 
-var sendgrid = require('sendgrid')("jkang107", "wlsdk6427");
+var sendgrid = require('sendgrid')(process.env.SENDGRID_ID, process.env.SENDGRID_PW);
 
 app.post("/sendMail", function(req, res) {
     sendgrid.send({
