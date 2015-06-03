@@ -173,6 +173,11 @@ body{
   opacity: 0.8;
   margin: 2px;
 }
+
+.filter.filter_all {
+  width:97%;
+}
+
 .filter:hover {
   opacity:1;
 }
@@ -204,3 +209,35 @@ hr {
 .delete-item:hover{
   color: #606060;
 }
+
+/*--------------------------------------*/
+/*.filter-on .panel{
+  display: none;
+}
+
+.filter-on .panel.filter-in {
+  display: block;
+}*/
+
+.list_container {
+  -webkit-backface-visibility: hidden;
+}
+/*.list_container .mix{
+  display: inline-block;
+}*/
+.list_container .mix{
+  display: none;
+}
+/*.list_container .mix:after{
+  display: block;
+}
+
+.list_container .mix:before{
+  display: block;
+}
+
+.list_container:after{
+  content: '';
+  display: block;
+  width: 100%;
+}*/

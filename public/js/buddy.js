@@ -304,7 +304,7 @@ var numOfTravel = 0;
 
 function createNewObject(travel, count) {
 
-    $("#accordion").prepend("<div id='object_" + count + "' class='panel panel-default " + panelStyle + "'></div>");
+    $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default " + panelStyle + "'></div>");
 
     $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
 
@@ -364,13 +364,50 @@ function createNewObject(travel, count) {
         _object.append("<span id='_transportation' class='inner_text inner_text_trans'>#" + tmp_trans + "</span>");
     }
 
+    var tmp_country_class;
+
+    switch (travel.country_from) {
+        case "멕시코":
+            tmp_country_class = 'mexico';
+            break;
+        case "콜롬비아":
+            tmp_country_class = 'colombia';
+            break;
+        case "에콰도르":
+            tmp_country_class = 'equador';
+            break;
+        case "페루":
+            tmp_country_class = 'peru';
+            break;
+        case "볼리비아":
+            tmp_country_class = 'bolivia';
+            break;
+        case "칠레":
+            tmp_country_class = 'chile';
+            break;
+        case "아르헨티나":
+            tmp_country_class = 'argentina';
+            break;
+        case "브라질":
+            tmp_country_class = 'brazil';
+            break;
+    }
+    $("#object_" + count).addClass(tmp_country_class);
+
+
     //add travel country_from
     if (typeof travel.country_from == "string") {
+        //$("#object_" + count).attr('attr-country', travel.country_from);
         _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from + "</span>");
     } else {
+        //var tmpCountry = "";
+        //$("#object_" + count).attr('attr-country', tmpCountry);
         for (var i = 0; i < travel.country_from.length; i++) {
+            //tmpCountry += travel.country_from;
             _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from[i] + "</span>");
         }
+        //$("#object_" + count).attr('attr-country', tmpCountry);
+
     }
 
     //add travel city_to
@@ -475,6 +512,11 @@ function getTravelList() {
                 returnTravelType(result[i].type);
                 createNewObject(result[i], i + 1);
             }
+            $('#accordion').mixItUp({
+                layout: {
+                    display: 'block'
+                }
+            });
         },
         error: function(a, b) {
             console.log("error: " + a + b);
@@ -576,3 +618,14 @@ function checkLoginStatus() {
         $("#login_container").append('<ul class="dropdown-menu"><li><a href="/mylist">내가 올린 글 보기</a></li><li class="divider"></li><li><a onclick="javascript:kakao_logout()">Logout</a></li></ul>');
     }
 }
+
+/*var tmp_filterArr;
+function sortCountry(country) {
+    $("#accordion").removeClass('filter-on');
+
+    var tmp_filterArr = $("#accordion").find("[attr-country='"+country+"']");
+    for(var i=0; i < tmp_filterArr.length; i++) {
+        $(tmp_filterArr[i]).addClass("filter-in");
+    }
+    $("#accordion").addClass('filter-on');
+}*/

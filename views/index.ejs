@@ -436,14 +436,15 @@
                                 <p class="lead text-center">F i l t e r</p>
                             <hr>
                             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ducimus explicabo quibusdam temporibus deserunt doloremque pariatur ea, animi a. Delectus similique atque eligendi, enim vel reiciendis deleniti neque aliquid, sit?</p> -->
-                            <div class='filter country text-center'>멕시코</div>
-                            <div class='filter country text-center'>콜롬비아</div>
-                            <div class='filter country text-center'>에콰도르</div>
-                            <div class='filter country text-center'>페루</div>
-                            <div class='filter country text-center'>볼리비아</div>
-                            <div class='filter country text-center'>칠레</div>
-                            <div class='filter country text-center'>아르헨티나</div>
-                            <div class='filter country text-center'>브라질</div>
+                            <div class='filter text-center filter_all' data-filter="all">Show All</div>
+                            <div class='filter text-center' data-filter='.mexico'>멕시코</div>
+                            <div class='filter text-center' data-filter='.colombia'>콜롬비아</div>
+                            <div class='filter text-center' data-filter='.equador'>에콰도르</div>
+                            <div class='filter text-center' data-filter='.peru'>페루</div>
+                            <div class='filter text-center' data-filter='.bolivia'>볼리비아</div>
+                            <div class='filter text-center' data-filter='.chile'>칠레</div>
+                            <div class='filter text-center' data-filter='.argentina'>아르헨티나</div>
+                            <div class='filter text-center' data-filter='.brazil'>브라질</div>
                             <!-- <div class="space"></div> -->
                             <div class="row">
                                 <div class="box">
@@ -483,7 +484,7 @@
                         </div>
                         
                         <div id='travelList_container' class="col-md-8 col-xs-12 smooth-scroll">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel-group list_container" id="accordion" role="tablist" aria-multiselectable="true">
                             </div>
                         </div>
                     </div>
@@ -589,6 +590,7 @@
     <script type="text/javascript" src="bootstrap/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="plugins/spin.min.js"></script>
     <script type="text/javascript" src="plugins/bootbox.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.mixitup.min.js"></script>
 </body>
 
 </html>
