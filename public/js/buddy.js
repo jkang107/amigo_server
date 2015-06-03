@@ -403,7 +403,16 @@ function createNewObject(travel, count) {
         $("#delete_" + count).click(function(e) {
             console.log(e.target);
             var tmpIndex = parseInt(e.target.parentNode.attributes.index.value);
-            deleteItem(tmpIndex, parseInt(e.target.id.split("_")[1]));
+            bootbox.confirm({
+                size: 'small',
+                message: '정말 삭제하시겠습니까?',
+                callback: function(result) {
+                    if(result == true) {
+                        deleteItem(tmpIndex, parseInt(e.target.id.split("_")[1]));
+                    } 
+                }
+            }); 
+            
         });
     }
 
@@ -500,12 +509,12 @@ function getMyList() {
         spinner.stop();
     });
 }
-
+var tmp_delete_index = 0;
 function deleteItem(item, parentDivIndex) {
     /*var target = document.getElementById("#object_" + parentDivIndex);
     var spinner = new Spinner().spin();
     target.appendChild(spinner.el);*/
-
+    tmp_delete_index = parentDivIndex;
     var url = preURL + "/deleteItem";
 
     deferred = $.post(url, {
@@ -523,7 +532,7 @@ function deleteItem(item, parentDivIndex) {
             createNewObject(result[i], i + 1);
         }*/
         //remove div
-        //$("#object_" + parentDivIndex).remove();
+        $("#object_" + tmp_delete_index).remove();
     });
 
     deferred.error(function(e) {
