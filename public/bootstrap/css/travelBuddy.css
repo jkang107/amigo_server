@@ -211,8 +211,13 @@ hr {
   display: none;
 }
 
-
 .date_input {
   width: 50%;
   float: left;
+}
+
+/*----------------My list 화면의 container ----------------------*/
+
+#travelList_container.mylist {
+  height: 610px;
 }

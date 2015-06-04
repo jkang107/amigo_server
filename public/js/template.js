@@ -181,49 +181,46 @@
             $("#travelList_container").css("height", listHeight);
         }
 
-    $('form').validate({
-        rules: {
-            kakaotalkID: {
-                required: true
+        $('form').validate({
+            rules: {
+                kakaotalkID: {
+                    required: true
+                },
+                start: {
+                    required: true
+                },
+                end: {
+                    required: true
+                }
             },
-            start: {
-                required: true
+            messages: {
+                kakaotalkID: {
+                    required: "*"
+                },
+                start: {
+                    required: "*"
+                },
+                end: {
+                    required: "*"
+                }
             },
-            end: {
-                required: true
-            }
-        },
-        messages: {
-            kakaotalkID: {
-                required: "*"
+            highlight: function(element) {
+                $(element).closest('.form-group').addClass('has-error');
             },
-            start: {
-                required: "*"
+            unhighlight: function(element) {
+                $(element).closest('.form-group').removeClass('has-error');
             },
-            end: {
-                required: "*"
-            }
-        },
-        highlight: function(element) {
-            $(element).closest('.form-group').addClass('has-error');
-        },
-        unhighlight: function(element) {
-            $(element).closest('.form-group').removeClass('has-error');
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.parent('.input-group').length) {
-                error.insertAfter(element.parent());
-            } else {
-                error.insertAfter(element);
-            }
-        },
-        /*success: function(label) {
-            label.addClass("valid").text("Ok!")
-        },*/
-        submitHandler: function() { addNewTravel(); }
-    });
+            errorElement: 'span',
+            errorClass: 'help-block',
+            errorPlacement: function(error, element) {
+                if(element.parent('.input-group').length) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function() { addNewTravel(); }
+        });
 
 
     }); // End document ready
