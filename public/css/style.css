@@ -798,6 +798,15 @@ textarea {
 	#login {
 		transform: translate(-50%, -50%);
 	}
+	.filter.filter_all {
+	  	width:97%;
+	}
+	.filter {
+		width: 48%;
+		height: 60px;
+		line-height: 60px;
+		font-size: 120%;
+	}
 } 
 @media (max-width:450px) {
 	#login {
@@ -806,6 +815,18 @@ textarea {
 		height: 14em;
 		margin-top: -7em;
 		margin-left: -9em;
+	}
+	#myCarousel {
+	    display: none;
+	}
+	.filter.filter_all {
+		width: 23%
+	}
+	.filter {
+		width:23%;
+		height: 35px;
+		line-height: 35px;
+		font-size: 100%;
 	}
 }
 @media (min-width:450px) and (max-width:767px) {

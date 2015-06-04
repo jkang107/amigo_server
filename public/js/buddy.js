@@ -472,9 +472,9 @@ function stampCurrentTime() {
 }
 
 function sendToServer(travelInfo) {
-    var target = document.getElementById('travelList_container');
+    /*var target = document.getElementById('travelList_container');
     var spinner = new Spinner().spin();
-    target.appendChild(spinner.el);
+    target.appendChild(spinner.el);*/
 
     var url = preURL + "/sendTravelInfo";
     deferred = $.post(url, {
@@ -484,13 +484,13 @@ function sendToServer(travelInfo) {
     });
 
     deferred.success(function(e) {
-        spinner.stop();
+        //spinner.stop();
         console.log("Success Message from server : " + e);
         createNewObject(tmp_new_travel, numOfTravel);
     });
 
     deferred.error(function(e) {
-        spinner.stop();
+        //spinner.stop();
         console.log("Error Message from server : " + e);
         // Handle any errors here.
     });
@@ -498,11 +498,16 @@ function sendToServer(travelInfo) {
 }
 
 function getTravelList() {
+    var target = document.getElementById('travelList_container');
+    var spinner = new Spinner().spin();
+    target.appendChild(spinner.el);
+
     var url = preURL + "/getTravelList";
     $.ajax({
         type: 'GET',
         url: url,
         success: function(result) {
+            spinner.stop();
             console.log(result);
             /*if(window.location.pathname == "/mylist") {
 
@@ -519,6 +524,7 @@ function getTravelList() {
             });
         },
         error: function(a, b) {
+            spinner.stop();
             console.log("error: " + a + b);
         }
     });

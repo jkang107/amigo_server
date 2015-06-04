@@ -161,22 +161,22 @@ body{
 ::-webkit-resizer { background-color: #666;}
 
 .filter {
-  height:60px;
-  width:48%;
+  /*height:60px;*/
+  /*width:48%;*/
   background-color: white;
   /*border: solid 1px black;*/
   float: left;
   position: relative;
-  line-height: 60px;
+  /*line-height: 60px;*/
   font-family: 'Jeju Hallasan', serif;
-  font-size: 120%;
+  /*font-size: 120%;*/
   opacity: 0.8;
   margin: 2px;
 }
 
-.filter.filter_all {
+/*.filter.filter_all {
   width:97%;
-}
+}*/
 
 .filter:hover {
   opacity:1;
@@ -191,13 +191,13 @@ hr {
   width:60%;
 }
 
-/*.form-group.required .control-label:before { 
-   content:"*";
-   color:red;
-}*/
-
-#carousel-example-generic {
+#myCarousel {
     margin-top: 20px;
+}
+
+.box {
+    margin-bottom: 20px;
+    padding: 15px 15px;
 }
 
 .delete-item {
@@ -211,33 +211,9 @@ hr {
 }
 
 /*--------------------------------------*/
-/*.filter-on .panel{
-  display: none;
-}
-
-.filter-on .panel.filter-in {
-  display: block;
-}*/
-
 .list_container {
   -webkit-backface-visibility: hidden;
 }
-/*.list_container .mix{
-  display: inline-block;
-}*/
 .list_container .mix{
   display: none;
 }
-/*.list_container .mix:after{
-  display: block;
-}
-
-.list_container .mix:before{
-  display: block;
-}
-
-.list_container:after{
-  content: '';
-  display: block;
-  width: 100%;
-}*/
