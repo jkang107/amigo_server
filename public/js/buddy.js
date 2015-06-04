@@ -397,17 +397,11 @@ function createNewObject(travel, count) {
 
     //add travel country_from
     if (typeof travel.country_from == "string") {
-        //$("#object_" + count).attr('attr-country', travel.country_from);
         _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from + "</span>");
     } else {
-        //var tmpCountry = "";
-        //$("#object_" + count).attr('attr-country', tmpCountry);
         for (var i = 0; i < travel.country_from.length; i++) {
-            //tmpCountry += travel.country_from;
             _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from[i] + "</span>");
         }
-        //$("#object_" + count).attr('attr-country', tmpCountry);
-
     }
 
     //add travel city_to
@@ -453,6 +447,10 @@ function createNewObject(travel, count) {
         });
     }
 
+    if(isNewElement) {
+        $('#accordion').mixItUp('prepend', $("object_" + count), {filter: 'all'});
+        isNewElement = false;
+    }
     count++;
 }
 
@@ -470,7 +468,7 @@ function stampCurrentTime() {
     currentTime = yyyy + "/" + mm + "/" + dd + " " + hh + ":" + m + ":" + ss;
 
 }
-
+var isNewElement = false;
 function sendToServer(travelInfo) {
     /*var target = document.getElementById('travelList_container');
     var spinner = new Spinner().spin();
@@ -486,7 +484,9 @@ function sendToServer(travelInfo) {
     deferred.success(function(e) {
         //spinner.stop();
         console.log("Success Message from server : " + e);
+        isNewElement = true;
         createNewObject(tmp_new_travel, numOfTravel);
+         
     });
 
     deferred.error(function(e) {
