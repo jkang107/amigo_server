@@ -123,7 +123,20 @@
         //Buddy
 
 
-        $("#submit_travel").on('click touchstart', addNewTravel);
+        $("#submit_travel").on('click touchstart', function(e) {
+            /*var kakaoID = $("#kakaoID");
+            if(!kakaoID.val()) {
+                console.log(" This field is required");
+                // Stop submission of the form
+                e.preventDefault();
+            } else {
+                console.log(" Good! ");
+                addNewTravel();
+            }*/
+            //addNewTravel();
+            
+        });
+
         $("#travel_type").on('click touchstart',chooseTravelType);
         $("#newTravelBtn").on('click touchend',showTravelForm);
 
@@ -168,10 +181,51 @@
             $("#travelList_container").css("height", listHeight);
         }
 
-        $(".filter").click(function(e) {
-            //sortCountry(e.target.textContent);
-        });
-        
+    $('form').validate({
+        rules: {
+            kakaotalkID: {
+                required: true
+            },
+            start: {
+                required: true
+            },
+            end: {
+                required: true
+            }
+        },
+        messages: {
+            kakaotalkID: {
+                required: "*"
+            },
+            start: {
+                required: "*"
+            },
+            end: {
+                required: "*"
+            }
+        },
+        highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        /*success: function(label) {
+            label.addClass("valid").text("Ok!")
+        },*/
+        submitHandler: function() { addNewTravel(); }
+    });
+
+
     }); // End document ready
 
 })(this.jQuery);

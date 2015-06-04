@@ -635,3 +635,22 @@ function sortCountry(country) {
     }
     $("#accordion").addClass('filter-on');
 }*/
+
+/*function validate() {
+    var x = document.forms["myForm"]["firstname"].value;
+    if (x == null || x == "") {
+        return false;
+    }
+}*/
+
+function validate() {
+    var kakaoID = $("#kakaoID");
+    if(!kakaoID.val()) {
+        console.log(" This field is required");
+        // Stop submission of the form
+        e.preventDefault();
+    } else {
+        console.log(" Good! ");
+
+    }
+}

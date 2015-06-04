@@ -15,7 +15,9 @@ a:hover, a:focus { text-decoration: none; }
 .margin_label { 
   padding: 5px;
 }
-
+.panel-body {
+  color: black;
+}
 .panel_body_padding {
   padding: 5px 0px;
 }
@@ -161,17 +163,13 @@ body{
 ::-webkit-resizer { background-color: #666;}
 
 .filter {
-  /*height:60px;*/
-  /*width:48%;*/
   background-color: white;
-  /*border: solid 1px black;*/
   float: left;
   position: relative;
-  /*line-height: 60px;*/
   font-family: 'Jeju Hallasan', serif;
-  /*font-size: 120%;*/
   opacity: 0.8;
   margin: 2px;
+  color: black;
 }
 
 /*.filter.filter_all {
@@ -211,4 +209,10 @@ hr {
 }
 .list_container .mix{
   display: none;
+}
+
+
+.date_input {
+  width: 50%;
+  float: left;
 }
