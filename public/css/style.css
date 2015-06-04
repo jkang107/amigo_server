@@ -807,6 +807,10 @@ textarea {
 		line-height: 60px;
 		font-size: 120%;
 	}
+	.box {
+		margin-bottom: 20px;
+		padding: 15px 15px;
+	}
 } 
 @media (max-width:450px) {
 	#login {
@@ -816,18 +820,7 @@ textarea {
 		margin-top: -7em;
 		margin-left: -9em;
 	}
-	#myCarousel {
-	    display: none;
-	}
-	.filter.filter_all {
-		width: 23%
-	}
-	.filter {
-		width:23%;
-		height: 35px;
-		line-height: 35px;
-		font-size: 100%;
-	}
+
 }
 @media (min-width:450px) and (max-width:767px) {
 	#login {
@@ -899,6 +892,23 @@ textarea {
 	}
 	.title{
 		margin-top: 40px;
+	}
+
+	#myCarousel {
+	    display: none;
+	}
+	.filter.filter_all {
+		width: 32%
+	}
+	.filter {
+		width:32%;
+		height: 35px;
+		line-height: 35px;
+		font-size: 100%;
+	}
+	.box {
+		margin-bottom: 0px;
+		padding: 10px 15px;
 	}
 }	
 
