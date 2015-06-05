@@ -366,44 +366,99 @@ function createNewObject(travel, count) {
     }
 
     var tmp_country_class;
-
-    switch (travel.country_from) {
-        case "멕시코":
-            tmp_country_class = 'mexico';
-            break;
-        case "콜롬비아":
-            tmp_country_class = 'colombia';
-            break;
-        case "에콰도르":
-            tmp_country_class = 'equador';
-            break;
-        case "페루":
-            tmp_country_class = 'peru';
-            break;
-        case "볼리비아":
-            tmp_country_class = 'bolivia';
-            break;
-        case "칠레":
-            tmp_country_class = 'chile';
-            break;
-        case "아르헨티나":
-            tmp_country_class = 'argentina';
-            break;
-        case "브라질":
-            tmp_country_class = 'brazil';
-            break;
+    if(travel.country_from instanceof Array || travel.country_from.split(",").length > 1) {
+        var tmp_travel_country_array = new Array;
+        if(typeof travel.country_from == 'string') {
+            tmp_travel_country_array = travel.country_from.split(",");
+        } else {
+            tmp_travel_country_array = travel.country_from;
+        }
+       for(var i = 0; i < tmp_travel_country_array.length; i++) {
+            switch (tmp_travel_country_array[i]) {
+                case "멕시코":
+                    tmp_country_class = 'mexico';
+                    break;
+                case "콜롬비아":
+                    tmp_country_class = 'colombia';
+                    break;
+                case "에콰도르":
+                    tmp_country_class = 'equador';
+                    break;
+                case "페루":
+                    tmp_country_class = 'peru';
+                    break;
+                case "볼리비아":
+                    tmp_country_class = 'bolivia';
+                    break;
+                case "칠레":
+                    tmp_country_class = 'chile';
+                    break;
+                case "아르헨티나":
+                    tmp_country_class = 'argentina';
+                    break;
+                case "브라질":
+                    tmp_country_class = 'brazil';
+                    break;
+            }
+            $("#object_" + count).addClass(tmp_country_class);
+        } 
+    } else {
+        switch (travel.country_from) {
+            case "멕시코":
+                tmp_country_class = 'mexico';
+                break;
+            case "콜롬비아":
+                tmp_country_class = 'colombia';
+                break;
+            case "에콰도르":
+                tmp_country_class = 'equador';
+                break;
+            case "페루":
+                tmp_country_class = 'peru';
+                break;
+            case "볼리비아":
+                tmp_country_class = 'bolivia';
+                break;
+            case "칠레":
+                tmp_country_class = 'chile';
+                break;
+            case "아르헨티나":
+                tmp_country_class = 'argentina';
+                break;
+            case "브라질":
+                tmp_country_class = 'brazil';
+                break;
+        }
+        $("#object_" + count).addClass(tmp_country_class);
     }
-    $("#object_" + count).addClass(tmp_country_class);
+    
+    
 
 
     //add travel country_from
-    if (typeof travel.country_from == "string") {
+    /*if (typeof travel.country_from == "string") {
         _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from + "</span>");
     } else {
         for (var i = 0; i < travel.country_from.length; i++) {
             _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from[i] + "</span>");
         }
+    }*/
+    var tmp_str_country;
+    if(typeof travel.country_from == 'string') {
+        tmp_str_country = travel.country_from.split(",");
+        if(tmp_str_country.length > 2) {
+            tmp_str_country = tmp_str_country.slice(0,2).toString() + " 외 " + (tmp_str_country.length - 2) + "개국";
+        }
+        
+    } else {
+        if(travel.country_from.length > 2) {
+            tmp_str_country = travel.country_from.slice(0,2) + " 외 " + (travel.country_from.length - 2) + "개국";
+        } else {
+            tmp_str_country = travel.country_from.toString();
+        }
     }
+    _object.append("<span id='_country_from' class='inner_text'>#" + tmp_str_country + "</span>");
+
 
     //add travel city_to
     if (travel.city_from !== null) {
