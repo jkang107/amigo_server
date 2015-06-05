@@ -183,8 +183,9 @@ var addNewTravel = function() {
         city_to: null,
         transportation: null,
         tour_name: null,
-        comment: null,
+        comment: "카카오톡 ID: " + $("#kakaoID").val() + '\n',
         kakao_thumbnail: localStorage.getItem("thumbnail")
+        
     };
 
     switch (travelType) {
@@ -197,7 +198,7 @@ var addNewTravel = function() {
             travelInfo['when_from'] = $("#travel_date_from").val();
             travelInfo['when_to'] = $("#travel_date_to").val();
             travelInfo['country_from'] = countryArr;
-            travelInfo['comment'] = $("#travel_detail1").val();
+            travelInfo['comment'] += $("#travel_detail1").val();
 
             panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
@@ -210,7 +211,7 @@ var addNewTravel = function() {
             travelInfo['country_to'] = $("#move_to_country option:selected").val();
             travelInfo['city_to'] = $("#move_to").val();
             travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
-            travelInfo['comment'] = $("#travel_detail2").val();
+            travelInfo['comment'] += $("#travel_detail2").val();
 
             panelStyle = "panel-info";
             titleImage = "taxi_64.png";
@@ -221,7 +222,7 @@ var addNewTravel = function() {
             travelInfo['when_to'] = $("#tour_date_to").val();
             travelInfo['country_from'] = $("#tour_contry option:selected").val();
             travelInfo['tour_name'] = $("#tour_name").val();
-            travelInfo['comment'] = $("#travel_detail3").val();
+            travelInfo['comment'] += $("#travel_detail3").val();
 
             panelStyle = "panel-warning";
             titleImage = "biking_64.png";
@@ -231,7 +232,7 @@ var addNewTravel = function() {
             travelInfo['when_from'] = $("#food_when").val();
             travelInfo['country_from'] = $("#food_country option:selected").val();
             travelInfo['city_from'] = $("#food_city").val();
-            travelInfo['comment'] = $("#travel_detail4").val();
+            travelInfo['comment'] += $("#travel_detail4").val();
 
             panelStyle = "panel-danger";
             titleImage = "food_64.png";
@@ -306,9 +307,9 @@ function createNewObject(travel, count) {
 
     $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default " + panelStyle + "'></div>");
 
-    $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
+    $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title mylist-panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
 
-    $("#object_" + count).append("<div id='collapse_" + count + "' class='panel-collapse collapse' role='tabpanel' aria-labelledby='collapse_" + count + "'><div class='panel-body'>" + travel.comment + "</div></div>");
+    $("#object_" + count).append("<div id='collapse_" + count + "' class='panel-collapse collapse' role='tabpanel' aria-labelledby='collapse_" + count + "'><div class='panel-body'>" + travel.comment + "<br/></div></div>");
     
     /*if(isMyListPage) {
         $("#object_" + count).append("<span class='delete-item glyphicon glyphicon-remove-circle' aria-hidden='true'></span>");
@@ -430,10 +431,20 @@ function createNewObject(travel, count) {
 
 
     if(isMyListPage) {
-        _object.append("<span id='delete_" + count+ "'class='delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
+        if(window.innerWidth < 760) {
+            _object.parent().append("<span id='delete_" + count+ "'class='mylist-delete-btn delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
+
+        } else { 
+            _object.append("<span id='delete_" + count+ "'class='mylist-delete-btn delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
+        }
         $("#delete_" + count).click(function(e) {
             console.log(e.target);
-            var tmpIndex = parseInt(e.target.parentNode.attributes.index.value);
+            var tmpIndex;
+            if(window.innerWidth < 760) {
+                tmpIndex = parseInt($(e.target).prev().attr('index'));
+            } else {
+                tmpIndex = parseInt(e.target.parentNode.attributes.index.value);
+            }       
             bootbox.confirm({
                 size: 'small',
                 message: '정말 삭제하시겠습니까?',
@@ -485,6 +496,7 @@ function sendToServer(travelInfo) {
         //spinner.stop();
         console.log("Success Message from server : " + e);
         isNewElement = true;
+        numOfTravel ++;
         createNewObject(tmp_new_travel, numOfTravel);
          
     });

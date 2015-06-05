@@ -1110,6 +1110,7 @@ p {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
+  color: white;
 }
 @media (min-width: 768px) {
   .lead {

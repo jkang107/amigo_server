@@ -146,7 +146,7 @@
                 <!-- login end -->
                 <!-- travel form start -->
                 <!-- Modal -->
-                <div class="modal fade " id="createTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="createTravel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <form>
                         <div class="modal-content" class='modal_style'>
@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="text-center">
-                                    <div id='travel_type' class="btn-group col-lg-12" data-toggle="buttons">
+                                    <div id='travel_type' class="btn-group col-lg-12 modal-padding-mobile " data-toggle="buttons">
                                         <label id="travelWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6 active">
                                             <input type="radio" name="options" autocomplete="off">
                                             <img id="travelWith" src='./bootstrap/images/travel_man_64.png' width='55' height='55' /> 같이 여행해요
@@ -183,9 +183,9 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Step 2. About you</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <div class='form-group btn-group panel_body_padding col-lg-4 col-xs-12'>
-                                        <label class='col-lg-3 col-xs-3 margin_label'>카카오톡 ID</label>
+                                <div class="panel-body modal-padding-mobile">
+                                    <div class='form-group btn-group panel_body_padding col-lg-4 col-xs-12 '>
+                                        <label class='col-lg-3 col-xs-4 margin_label'>카카오톡 ID</label>
                                         <input type="text" id="kakaoID" class="form-control col-lg-7 col-xs-8" name='kakaotalkID' placeholder="연락받을 카톡 ID"/>
                                     </div>
                                     <div id='client_gender' class="btn-group col-lg-3 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
@@ -201,19 +201,19 @@
                                     </div>
                                     <div id='client_age' class="btn-group col-lg-5 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
                                         <label class='col-lg-2 col-xs-3 margin_label'>나이대</label>
-                                        <label class="btn btn-default btn_form col-lg-2 active">
+                                        <label class="btn btn-default btn_form col-lg-2 col-xs-3 active">
                                             <input type="radio" name="options" id="age_10" value="10" autocomplete="off" required>10대
                                         </label>
-                                        <label class="btn btn-default btn_form col-lg-2">
+                                        <label class="btn btn-default btn_form col-lg-2 col-xs-3">
                                             <input type="radio" name="options" id="age_20" autocomplete="off"> 20대
                                         </label>
-                                        <label class="btn btn-default btn_form col-lg-2">
+                                        <label class="btn btn-default btn_form col-lg-2 col-xs-3">
                                             <input type="radio" name="options" id="age_30" autocomplete="off"> 30대
                                         </label>
-                                        <label class="btn btn-default btn_form col-lg-2">
+                                        <label class="btn btn-default btn_form col-lg-2 col-xs-4">
                                             <input type="radio" name="options" id="age_40" autocomplete="off"> 40대
                                         </label>
-                                        <label class="btn btn-default btn_form col-lg-2">
+                                        <label class="btn btn-default btn_form col-lg-2 col-xs-5">
                                             <input type="radio" name="options" id="age_50" autocomplete="off"> 50대~
                                         </label>
                                     </div>
@@ -222,20 +222,20 @@
                                     <h3 class="panel-title">Step 3. About travel</h3>
                                 </div>
                                 <div id='type1_container' style='display:block;'>
-                                    <div class="panel-body datepicker-container-range">
+                                    <div class="panel-body datepicker-container-range modal-padding-mobile">
                                         <div class="form-group input-daterange">
                                             <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행기간 </label>
                                             <div class='col-lg-12 col-sm-12 col-xs-12 form-group'>
-                                                <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-2 margin_label'>From</label>
+                                                <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-4 margin_label'>From</label>
                                                     <input id='travel_date_from' data-provide="datepicker" name="start" class='form-control date_input'>
                                                 </div>
-                                                <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-2 margin_label'>To</label>
+                                                <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-4 margin_label'>To</label>
                                                     <input id='travel_date_to' data-provide="datepicker" name="end" class='form-control date_input'>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id='country_body' class="panel-body">
+                                    <div id='country_body' class="panel-body modal-padding-mobile">
                                         <div class="form-group required">
                                             <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행국가</label>
                                             <div id='travel_country' class="btn-group col-lg-12 " data-toggle="buttons">
@@ -250,7 +250,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id='comment_body' class="panel-body">
+                                    <div id='comment_body' class="panel-body modal-padding-mobile">
                                         <div class="form-group">
                                             <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
                                             <textarea id='travel_detail1' class="form-control" rows="3"></textarea>
@@ -258,10 +258,10 @@
                                     </div>
                                 </div>
                                 <div id='type2_container' style='display:none;'>
-                                    <div id='city_body' class='panel-body'>
+                                    <div id='city_body' class='panel-body modal-padding-mobile'>
                                         <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>이동정보 </label>
-                                        <div class="col-lg-12 col-sm-12 col-xs-12 form-group">
-                                            <div class='col-lg-3 col-sm-4 col-xs-12 panel_body_padding datepicker-container'><label class='col-lg-2 col-xs-2 margin_label'>언제</label>
+                                        <div class="col-lg-12 col-sm-12 col-xs-12 form-group modal-padding-mobile">
+                                            <div class='col-lg-3 col-sm-4 col-xs-12 margin_label datepicker-container'><label class='col-lg-2 col-xs-2 margin_label'>언제</label>
                                                 <input id='move_when' class='form-control date_input' name='start'>
                                             </div>
                                             <div class='col-lg-1'></div>
@@ -296,7 +296,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id='country_body' class="panel-body">
+                                    <div id='country_body' class="panel-body modal-padding-mobile">
                                         <div id="transportation_button" class="btn-group panel_body_padding col-lg-12 col-sm-12 col-xs-12" data-toggle="buttons">
                                             <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>이동수단</label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4 active">
@@ -313,7 +313,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div id='comment_body' class="panel-body">
+                                    <div id='comment_body' class="panel-body modal-padding-mobile">
                                         <div class="form-group">
                                             <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
                                             <textarea id='travel_detail2' class="form-control" rows="3"></textarea>
@@ -322,20 +322,20 @@
                                 </div>
                                 <div id='type3_container' style='display:none;'>
 
-                                <div class="panel-body datepicker-container-range">
-                                        <div class="form-group input-daterange">
-                                            <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행기간 </label>
-                                            <div class='col-lg-12 col-sm-12 col-xs-12 form-group'>
-                                                <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-2 margin_label'>From</label>
-                                                    <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control date_input'>
-                                                </div>
-                                                <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-2 margin_label'>To</label>
-                                                    <input id='tour_date_to' data-provide="datepicker" name="end" class='form-control date_input'>
-                                                </div>
+                                <div class="panel-body datepicker-container-range modal-padding-mobile">
+                                    <div class="form-group input-daterange">
+                                        <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>여행기간 </label>
+                                        <div class='col-lg-12 col-sm-12 col-xs-12 form-group'>
+                                            <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-4 margin_label'>From</label>
+                                                <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control date_input'>
+                                            </div>
+                                            <div class='form-group col-lg-6 col-sm-6 col-xs-6 panel_body_padding date_input'><label class='col-lg-2 col-xs-4 margin_label'>To</label>
+                                                <input id='tour_date_to' data-provide="datepicker" name="end" class='form-control date_input'>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id='tour_body' class="panel-body">
+                                </div>
+                                    <div id='tour_body' class="panel-body modal-padding-mobile">
                                         
                                             <label class='margin_label'>투어/트레킹 명 </label>
                                             <div class="input-group form-group col-lg-8 col-sm-12 col-xs-12">
@@ -349,10 +349,10 @@
                                                     <option>브라질</option>
                                                     <option>멕시코</option>
                                                 </select>
-                                                <input type="text" id="tour_name" class="form-control" placeholder="ex) 우유니 투어, 토레스 델 파이네" name="tour_name"/>
+                                                <input type="text" id="tour_name" class="form-control tour_placeholder" placeholder="ex) 우유니 투어, 토레스 델 파이네" name="tour_name"/>
                                             </div>
                                     </div>
-                                    <div id='comment_body' class="panel-body">
+                                    <div id='comment_body' class="panel-body modal-padding-mobile">
                                         <div class="form-group">
                                             <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
                                             <textarea id='travel_detail3' class="form-control" rows="3"></textarea>
@@ -361,7 +361,7 @@
                                 </div>
                                 <div id='type4_container' style='display:none;'>
 
-                                    <div id='city_body' class='panel-body'>
+                                    <div id='city_body' class='panel-body modal-padding-mobile'>
                                         <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'></label>
                                         <div class="col-lg-12 col-sm-12 col-xs-12 form-group">
                                             <div class='col-lg-3 col-sm-4 col-xs-12 panel_body_padding datepicker-container'><label class='col-lg-2 col-xs-2 margin_label'>언제</label>
@@ -384,7 +384,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    <div id='comment_body' class="panel-body">
+                                    <div id='comment_body' class="panel-body modal-padding-mobile">
                                         <div class="form-group">
                                             <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
                                             <textarea id='travel_detail4' class="form-control" rows="3"></textarea>
@@ -404,6 +404,7 @@
             </div>
         </div>
     </div>
+
     <!-- banner end -->
     <!-- section start -->
     <!-- ================ -->
