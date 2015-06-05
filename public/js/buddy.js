@@ -20,6 +20,7 @@ Kakao.Auth.createLoginButton({
                 sendLoginInfo(res);
                 isLogin = true;
                 afterLogin(res);
+                window.location.reload();
             },
             fail: function(error) {
                 alert(JSON.stringify(error));
@@ -436,13 +437,6 @@ function createNewObject(travel, count) {
 
 
     //add travel country_from
-    /*if (typeof travel.country_from == "string") {
-        _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from + "</span>");
-    } else {
-        for (var i = 0; i < travel.country_from.length; i++) {
-            _object.append("<span id='_country_from' class='inner_text'>#" + travel.country_from[i] + "</span>");
-        }
-    }*/
     var tmp_str_country;
     if(typeof travel.country_from == 'string') {
         tmp_str_country = travel.country_from.split(",");
