@@ -177,7 +177,7 @@
         });
 
         if(window.innerWidth < 767) {
-            var listHeight = window.innerHeight - 180;
+            var listHeight = window.innerHeight - 160;
             $("#travelList_container").css("height", listHeight);
         }
 

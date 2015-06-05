@@ -764,29 +764,6 @@ textarea {
 
 /* screen
 ----------------------------------------------------------------------------- */
-
-/* @media (max-width: @screen-sm) {
-    .banner-caption h1{font-size: 40px;}
-    .banner-caption {
-    	top: 25%;
-    }
-} */
-
-/* @media (max-width: @screen-sm) {
-    body{font-size: 14px;}
-} */
-
-/* @media (min-width:768px) {
-	.main-navigation .navbar-default .navbar-nav > li > a {
-		padding-top: 30px;
-		padding-bottom: 30px;
-		-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		-o-transition: all 0.3s ease-in-out;
-		-ms-transition: all 0.3s ease-in-out;
-		transition: all 0.3s ease-in-out;
-	}
-}*/
 @media (min-width:768px) and (max-width:1920px) {
 	#firstPage_btn_container {
 		margin-top: 100px;
@@ -811,6 +788,9 @@ textarea {
 		margin-bottom: 20px;
 		padding: 15px 15px;
 	}
+	.banner-caption.mylist {
+		top: 15%;
+	}
 } 
 @media (max-width:450px) {
 	#login {
@@ -834,6 +814,9 @@ textarea {
 	}
 }
 @media (max-width:767px) {
+	.banner-caption.mylist {
+		top:10%;
+	}
 	.mylist-panel-title {
 		position: 	relative;	
 	}
@@ -856,13 +839,6 @@ textarea {
 	}
 	#profil_img {
 		margin-top: 0px;
-	}
-	#login {
-		/*transform: translate(-50%, -50%);*/
-		/*width: 18em;
-		height: 14em;
-		margin-top: -7em;
-		margin-left: -9em;*/
 	}
 	.banner-caption h1{
 		font-size: 40px;
@@ -900,18 +876,12 @@ textarea {
 		border-top: solid 2px black;
   		border-bottom: solid 2px black;
   		background-color: white;
-  		/*height: 450px;*/
 	}
 	#about {
 		font-size: 25px;
 	}
 	.space {
 		padding: 5px 0;
-	}
-	.clipped {
-		/*-webkit-columns: 9em;
-  		-moz-columns: 9em;
-  		columns: 9em;*/
 	}
 	.section {
 		padding: 35px 0;
@@ -942,7 +912,6 @@ textarea {
 /*---------------- mylist -------------*/
 .banner-caption.mylist {
 	position: absolute;
-	top: 15%;
 	width: 100%;
 	z-index: 2;
 }
