@@ -9,6 +9,7 @@ var fs = require('fs');
 var compress = require('compression');
 
 app.use(compress());
+
 app.use(logfmt.requestLogger());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
