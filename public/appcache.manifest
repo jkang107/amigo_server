@@ -1,0 +1,33 @@
+CACHE MANIFEST
+# this is travel buddy manifest file
+# manifest version : v1.0 20150606
+CACHE:
+
+css/animate.css
+css/custom.css
+css/style.css
+
+images/portfolio-1.jpg
+images/DSC00605.JPG
+images/IMG_0731.JPG
+images/bg-image-1.jpg
+
+plugins/jquery.min.js
+bootstrap/js/bootstrap.min.js
+plugins/modernizr.js
+plugins/jquery.backstretch.min.js
+plugins/jquery.appear.js
+js/template.js
+js/custom.js
+js/buddy.js
+bootstrap/js/bootstrap-datepicker.min.js
+bootstrap/js/bootstrap-select.min.js
+plugins/spin.min.js
+plugins/bootbox.min.js
+plugins/jquery.mixitup.min.js
+plugins/jquery.validate.min.js
+
+NETWORK:
+*
+ 
+FALLBACK:
