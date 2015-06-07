@@ -163,7 +163,7 @@ blockquote {
 }
 .section {
 	background-color: #ffffff;
-	padding: 80px 0;
+	padding: 30px 0;
 }
 
 /* Backgrounds
@@ -769,7 +769,7 @@ textarea {
 		margin-top: 100px;
 	}
 	#travelList_container {
-	  height: 675px;
+	  /*height: 675px;*/
 	  overflow-y:auto;
 	}
 	#login {
@@ -791,6 +791,10 @@ textarea {
 	.banner-caption.mylist {
 		top: 15%;
 	}
+	.type_img {
+		width: 55px;
+		height: 55px;
+	}
 } 
 @media (max-width:450px) {
 	#login {
@@ -804,9 +808,8 @@ textarea {
 		min-width: 60px;
 	}
 	.tour_placeholder {
-		font-size: 10px;
+		font-size: 13px;
 	}
-
 }
 @media (min-width:450px) and (max-width:767px) {
 	#login {
@@ -814,6 +817,10 @@ textarea {
 	}
 }
 @media (max-width:767px) {
+	.type_img {
+		width: 30px;
+		height: 30px;
+	}
 	.banner-caption.mylist {
 		top:10%;
 	}
@@ -873,9 +880,9 @@ textarea {
 	}
 	#travelList_container {
 		padding: 0px;
-		border-top: solid 2px black;
+		/*border-top: solid 2px black;
   		border-bottom: solid 2px black;
-  		background-color: white;
+  		background-color: white;*/
 	}
 	#about {
 		font-size: 25px;
@@ -900,7 +907,7 @@ textarea {
 		width:32%;
 		height: 35px;
 		line-height: 35px;
-		font-size: 100%;
+		font-size: 70%;
 	}
 	.box {
 		margin-bottom: 0px;

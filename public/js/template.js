@@ -146,12 +146,14 @@
         $('.datepicker-container-range .input-daterange').datepicker({
             todayBtn: true,
             todayHighlight: true,
-            autoclose: true
+            autoclose: true,
+            disableTouchKeyboard: true
         });
 
         $('.datepicker-container input').datepicker({
             autoclose: true,
-            todayHighlight: true
+            todayHighlight: true,
+            disableTouchKeyboard: true
         });
 
         $("#findBuddy").on('click touchstart',function() {
@@ -179,10 +181,10 @@
             }
         });
 
-        if(window.innerWidth < 767) {
+        /*if(window.innerWidth < 767) {
             var listHeight = window.innerHeight - 160;
             $("#travelList_container").css("height", listHeight);
-        }
+        }*/
 
         $('form').validate({
             rules: {

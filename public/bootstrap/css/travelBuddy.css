@@ -171,6 +171,7 @@ body{
   opacity: 0.8;
   margin: 2px;
   color: black;
+  cursor: pointer;
 }
 
 /*.filter.filter_all {
@@ -187,7 +188,7 @@ hr {
 }
 
 #kakaoID {
-  width:60%;
+  width:66%;
 }
 
 #myCarousel {
@@ -224,9 +225,8 @@ hr {
 }
 
 /*---------------- Modal window ----------------------*/
-
-/*body.modal-open {
-    overflow: hidden;
+.form-control-inline {
+    min-width: 0;
+    width: auto;
+    display: inline;
 }
-
-*/

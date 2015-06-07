@@ -271,7 +271,7 @@ var isPressNewBtn = false;
 var showTravelForm = function() {
     if (isLogin) {
         isPressNewBtn = true;
-        $("#createTravel").toggle();
+        //$("#createTravel").toggle();
     } else {
         $('#createTravel').css('z-index', '-1');
         isPressNewBtn = true;
