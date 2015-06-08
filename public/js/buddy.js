@@ -313,7 +313,13 @@ function createNewObject(travel, count) {
     inner1.append("<img src='./bootstrap/images/" + titleImage + "' class='inner_list' alt='travel' width='40' height='40'>");
 
     // -------------------test ---------------
-    var inner2 = $("<div class='info_div' style='width:" + info_div_width + "px'></div>");
+    var inner2;
+    if(info_div_width != undefined) {
+        inner2 = $("<div class='info_div' style='width:" + info_div_width + "px'></div>");
+    } else {
+        inner2 = $("<div class='info_div'></div>");
+
+    }
 
     _object.append(inner2);
     _object = inner2;
@@ -481,7 +487,7 @@ function createNewObject(travel, count) {
             if(window.innerWidth < 760) {
                 tmpIndex = parseInt($(e.target).prev().attr('index'));
             } else {
-                tmpIndex = parseInt(e.target.parentNode.attributes.index.value);
+                tmpIndex = parseInt(e.target.parentNode.parentNode.attributes.index.value);
             }       
             bootbox.confirm({
                 size: 'small',
