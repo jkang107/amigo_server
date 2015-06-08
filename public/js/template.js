@@ -11,7 +11,7 @@
     $(document).ready(function() {
 
         $(".banner-image").backstretch('images/DSC00605.JPG');
-        $(".banner-image.mylist-image").backstretch('../images/portfolio-1.jpg');
+        $(".mylist-image").backstretch('images/portfolio-1.jpg');
 
         // Fixed header
         //-----------------------------------------------
@@ -120,9 +120,6 @@
             });
         }
 
-        /*$('body').css('overflow','hidden');
-        $('body').css('position','fixed');
-*/
         //Buddy
 
 
@@ -171,20 +168,15 @@
         }
 
         $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
-            /*if(event.target.className != "dropdown-toggle" && event.target.id != "findBuddy") {
-                $('.navbar-toggle:visible').click();
-            }*/
-
             if(event.target.id == "login_name" && event.target.className != "dropdown-toggle") {
                 $('.navbar-toggle:visible').click();
 
             }
         });
 
-        /*if(window.innerWidth < 767) {
-            var listHeight = window.innerHeight - 160;
-            $("#travelList_container").css("height", listHeight);
-        }*/
+        if(window.innerWidth < 767) {
+            info_div_width = window.innerWidth - 130;
+        }
 
         $('form').validate({
             rules: {

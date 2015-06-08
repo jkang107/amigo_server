@@ -38,19 +38,9 @@ a:hover, a:focus { text-decoration: none; }
   float: left;
 }
 
-.inner_text {
-  padding:7px; 
-  border:solid 1px #a1a1a1; 
-  border-radius: 25px;
-  color: #445448;
-  font-size: 90%;
-  line-height: 40px;
-  vertical-align: middle;
-  margin-right: 4px;
-}
+
 
 .inner_text_date {
-  border: 1px solid #a1a1a1;
   background: #E0E0E0;
 }
 
@@ -138,10 +128,12 @@ a:hover, a:focus { text-decoration: none; }
 
 
 #travelList_container {
+  min-height: 50px;
   overflow-y:auto;
   -webkit-overflow-scrolling: touch;
   background-color: transparent;
-
+/*overflow-y: scroll;
+  max-height: 1150px;*/
 }
 
 body{
@@ -221,8 +213,12 @@ hr {
 /*----------------My list 화면의 container ----------------------*/
 
 #travelList_container.mylist {
-  height: 610px;
+  /*height: 610px;*/
 }
+/*.mylist {
+  padding-top: 110px;
+  color: black;
+}*/
 
 /*---------------- Modal window ----------------------*/
 .form-control-inline {

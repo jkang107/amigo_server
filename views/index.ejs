@@ -221,12 +221,12 @@
                                 <div id='type1_container' style='display:block;'>
                                     <div class="panel-body datepicker-container-range modal-padding-mobile">
                                         <div class="form-group input-daterange">
-                                            <div class='col-lg-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
+                                            <div class='col-lg-6 col-sm-6 col-xs-12 panel-body modal-padding-mobile'>
                                                 <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
                                                     <input id='travel_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-9'>
                                                 </div>
                                             </div>
-                                            <div class='col-lg-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
+                                            <div class='col-lg-6 col-sm-6 col-xs-12 panel-body modal-padding-mobile'>
                                                 <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
                                                     <input id='travel_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-9'>
                                                 </div>
@@ -291,20 +291,22 @@
                                             </div>
                                     </div>
                                     <div id='country_body' class="panel-body modal-padding-mobile">
-                                        <div id="transportation_button" class="btn-group panel_body_padding col-lg-12 col-sm-12 col-xs-12" data-toggle="buttons">
+                                        <div id="transportation_button" class="btn-group panel_body_padding col-lg-12 col-sm-12 col-xs-12">
                                             <label class='col-lg-12 col-sm-12 col-xs-12 margin_label'>이동수단</label>
+                                            <div class='panel-body' data-toggle="buttons">
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4 active">
                                                 <input type="radio" name="options" id="taxi" autocomplete="off">
-                                                <img src='./bootstrap/images/taxi-64.png' />
-                                            </label>
-                                            <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
-                                                <input type="radio" name="options" id="metro" autocomplete="off">
-                                                <img src='./bootstrap/images/rail_64.png' />
+                                                <img src='./bootstrap/images/taxi-64.png' class='type_img'/>
                                             </label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
                                                 <input type="radio" name="options" id="bus" autocomplete="off">
-                                                <img src='./bootstrap/images/bus-64.png' />
+                                                <img src='./bootstrap/images/bus-64.png' class='type_img'/>
                                             </label>
+                                            <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
+                                                <input type="radio" name="options" id="metro" autocomplete="off">
+                                                <img src='./bootstrap/images/rail_64.png' class='type_img'/>
+                                            </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div id='comment_body' class="panel-body modal-padding-mobile">
