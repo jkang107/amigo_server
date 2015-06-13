@@ -165,6 +165,7 @@ var addNewTravel = function() {
     $('#createTravel').modal('hide');
     
     var travelType = $("#travel_type").find(".active").get(0).id;
+    var detail_txt;
 
     var travelInfo = {
         userId: localStorage.getItem("id"),
@@ -179,7 +180,8 @@ var addNewTravel = function() {
         city_to: null,
         transportation: null,
         tour_name: null,
-        comment: "카카오톡 ID: " + $("#kakaoID").val() + '<br>',
+        comment: null,
+        /*comment: "카카오톡 ID: " + $("#kakaoID").val() + '<br>',*/
         kakao_thumbnail: localStorage.getItem("thumbnail")
         
     };
@@ -190,45 +192,96 @@ var addNewTravel = function() {
             $("#travel_country").find(".active").each(function() {
                 countryArr.push($(this).text());
             });
+            var dateFromStr = $("#travel_date_from").val();
+            var dateToStr = $("#travel_date_to").val();
+
+            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 여행가요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryArr.toString() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail1").val().replace(/\n/g, '<br/>');
+
             travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#travel_date_from").val();
-            travelInfo['when_to'] = $("#travel_date_to").val();
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['when_to'] = dateToStr;
             travelInfo['country_from'] = countryArr;
-            travelInfo['comment'] += $("#travel_detail1").val();
+            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] += $("#travel_detail1").val();
 
             panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
+
+
             break;
         case "moveWith":
+            var dateFromStr = $("#move_when").val();
+            var countryFromStr = $("#move_from_country option:selected").val();
+            var cityFromStr = $("#move_from").val();
+            var countryToStr = $("#move_to_country option:selected").val();
+            var cityToStr = $("#move_to").val();
+
+            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 이동해요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + cityFromStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr +'<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail2").val().replace(/\n/g, '<br/>');
+
+
             travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#move_when").val();
-            travelInfo['country_from'] = $("#move_from_country option:selected").val();
-            travelInfo['city_from'] = $("#move_from").val();
-            travelInfo['country_to'] = $("#move_to_country option:selected").val();
-            travelInfo['city_to'] = $("#move_to").val();
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['country_from'] = countryFromStr;
+            travelInfo['city_from'] = cityFromStr;
+            travelInfo['country_to'] = countryToStr;
+            travelInfo['city_to'] = cityToStr;
             travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
-            travelInfo['comment'] += $("#travel_detail2").val();
+            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] += $("#travel_detail2").val();
 
             panelStyle = "panel-info";
             titleImage = "taxi_64.png";
             break;
         case "tourWith":
+            var dateFromStr = $("#tour_date_from").val();
+            var dateToStr = $("#tour_date_to").val();
+            var countryFromStr = $("#tour_contry option:selected").val();
+            var tourStr = $("#tour_name").val();
+
+            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 투어/트레킹해요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + tourStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr +'<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail3").val().replace(/\n/g, '<br/>');
+
+
             travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#tour_date_from").val();
-            travelInfo['when_to'] = $("#tour_date_to").val();
-            travelInfo['country_from'] = $("#tour_contry option:selected").val();
-            travelInfo['tour_name'] = $("#tour_name").val();
-            travelInfo['comment'] += $("#travel_detail3").val();
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['when_to'] = dateToStr;
+            travelInfo['country_from'] = countryFromStr;
+            travelInfo['tour_name'] = tourStr;
+            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] += $("#travel_detail3").val();
 
             panelStyle = "panel-warning";
             titleImage = "biking_64.png";
             break;
         case "foodWith":
+            var dateFromStr = $("#food_when").val();
+            var countryFromStr = $("#food_country option:selected").val();
+            var cityFromStr = $("#food_city").val();
+
+            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 식사해요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + cityFromStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr +'<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail4").val().replace(/\n/g, '<br/>');
+
+
             travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#food_when").val();
-            travelInfo['country_from'] = $("#food_country option:selected").val();
-            travelInfo['city_from'] = $("#food_city").val();
-            travelInfo['comment'] += $("#travel_detail4").val();
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['country_from'] = countryFromStr;
+            travelInfo['city_from'] = cityFromStr;
+            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] += $("#travel_detail4").val();
 
             panelStyle = "panel-danger";
             titleImage = "food_64.png";

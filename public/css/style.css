@@ -770,7 +770,7 @@ textarea {
 		margin-top: 100px;
 	}
 	#travelList_container {
-	  /*height: 675px;*/
+	  height: 675px;
 	  overflow-y:auto;
 	}
 	#login {
@@ -787,7 +787,7 @@ textarea {
 	}
 	.box {
 		margin-bottom: 20px;
-		padding: 15px 15px;
+		/* padding: 15px 15px; */
 	}
 	.banner-caption.mylist {
 		top: 15%;

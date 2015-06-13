@@ -18,6 +18,9 @@
     "connect": "~3.1.0",
     "cors": "~2.4.1",
     "sendgrid": "1.0.4"
-
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "jshint-stylish": "^2.0.0"
   }
 }

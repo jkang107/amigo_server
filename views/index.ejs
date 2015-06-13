@@ -29,7 +29,7 @@
     <!-- JINAH SAMPLE-->
     <!-- <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link href="bootstrap/css/datepicker.css" rel="stylesheet">
-    <link href="bootstrap/css/travelBuddy.css" rel="stylesheet">
+    <link href="css/travelBuddy.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejugothic.css">
@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="text-center">
-                                    <div id='travel_type' class="btn-group col-lg-12 modal-padding-mobile " data-toggle="buttons">
+                                    <div id='travel_type' class="btn-group col-lg-12 col-md-12 modal-padding-mobile " data-toggle="buttons">
                                         <label id="travelWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6 active">
                                             <input type="radio" name="options" autocomplete="off">
                                             <img id="travelWith" src='./bootstrap/images/travel_man_64.png' class='type_img'/> 같이 여행해요
@@ -181,20 +181,20 @@
                                     <h3 class="panel-title">Step 2. About you</h3>
                                 </div>
                                 <div class="panel-body modal-padding-mobile">
-                                    <div class='form-group btn-group panel_body_padding col-lg-4 col-xs-12 '>
-                                        <label class='col-lg-3 col-xs-4 margin_label'>카카오톡 ID</label>
-                                        <input type="text" id="kakaoID" class="form-control col-lg-7 col-xs-8" name='kakaotalkID' placeholder="연락받을 카톡 ID"/>
+                                    <div class='form-group btn-group panel_body_padding col-lg-4 col-md-12 col-xs-12 '>
+                                        <label class='col-lg-3 col-md-2 col-xs-4 margin_label'>카카오톡 ID</label>
+                                        <input type="text" id="kakaoID" class="form-control col-lg-7 col-md-10 col-xs-8" name='kakaotalkID' placeholder="연락받을 카톡 ID"/>
                                     </div>
-                                    <div id='client_gender' class="btn-group col-lg-3 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
+                                    <div id='client_gender' class="btn-group col-lg-3 col-md-5 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
                                         <label class='col-lg-2 col-xs-4 margin_label'>성별</label>
-                                        <label class="btn btn-default btn_form col-lg-4 col-xs-4 active">
+                                        <label class="btn btn-default btn_form col-lg-4 col-md-4 col-xs-4 active">
                                             <input type="radio" name="options" id="man" autocomplete="off" required>남자
                                         </label>
-                                        <label class="btn btn-default btn_form col-lg-4 col-xs-4">
+                                        <label class="btn btn-default btn_form col-lg-4 col-md-4 col-xs-4">
                                             <input type="radio" name="options" id="woman" autocomplete="off">여자
                                         </label>
                                     </div>
-                                    <div id='client_age' class="btn-group col-lg-5 col-sm-6 col-xs-12 panel_body_padding" >
+                                    <div id='client_age' class="btn-group col-lg-5 col-md-6 col-md-offset-1 col-sm-6 col-xs-12 panel_body_padding" >
                                         <label class='col-lg-2 col-xs-4 margin_label'>나이대</label>
                                         <div class='col-lg-10 col-xs-8 margin_label' data-toggle="buttons" style='padding:0px;'>
                                             <label class="btn btn-default btn_form col-lg-2 col-xs-4 active">
@@ -257,7 +257,7 @@
                                 </div>
                                 <div id='type2_container' style='display:none;'>
                                     <div id='city_body' class='col-lg-12 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
-                                        <div class='col-lg-4 panel-body datepicker-container'><div class='col-lg-3 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
+                                        <div class='col-lg-4 col-md-4 panel-body datepicker-container'><div class='col-lg-3 col-md-4 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
                                             <input id='move_when' name="start" class='form-control form-control-inline col-xs-9'>
                                         </div>
                                             <div class='col-lg-8 panel-body'>
@@ -319,12 +319,12 @@
                                 <div id='type3_container' style='display:none;'>
                                 <div class="panel-body datepicker-container-range modal-padding-mobile">
                                         <div class="form-group input-daterange">
-                                            <div class='col-lg-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
+                                            <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
                                                 <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
                                                     <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-9'>
                                                 </div>
                                             </div>
-                                            <div class='col-lg-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
+                                            <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
                                                 <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
                                                     <input id='tour_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-9'>
                                                 </div>
@@ -358,7 +358,7 @@
 
                                     <div id='city_body' class='panel-body modal-padding-mobile'>
                                         <div class="form-group">
-                                            <div class='col-lg-4 panel-body datepicker-container'><div class='col-lg-3 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 언제</div>
+                                            <div class='col-lg-4 col-md-4 panel-body datepicker-container'><div class='col-lg-3 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 언제</div>
                                             <input id='food_when' name="start" class='form-control form-control-inline col-xs-9'>
                                             </div>
                                             <div class='col-lg-8 panel-body'>
