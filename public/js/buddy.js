@@ -248,7 +248,7 @@ var addNewTravel = function() {
 
             detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 투어/트레킹해요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
-                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + tourStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr +'<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + tourStr + '<br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail3").val().replace(/\n/g, '<br/>');
 

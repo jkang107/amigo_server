@@ -181,12 +181,12 @@
                                     <h3 class="panel-title">Step 2. About you</h3>
                                 </div>
                                 <div class="panel-body modal-padding-mobile">
-                                    <div class='form-group btn-group panel_body_padding col-lg-4 col-md-12 col-xs-12 '>
-                                        <label class='col-lg-3 col-md-2 col-xs-4 margin_label'>카카오톡 ID</label>
-                                        <input type="text" id="kakaoID" class="form-control col-lg-7 col-md-10 col-xs-8" name='kakaotalkID' placeholder="연락받을 카톡 ID"/>
+                                    <div class='form-group btn-group panel_body_padding col-lg-4 col-md-6 col-xs-12 '>
+                                        <label class='col-lg-3 col-md-3 col-xs-4 margin_label'>카카오톡 ID</label>
+                                        <input type="text" id="kakaoID" class="form-control col-lg-7 col-md-9 col-xs-8" name='kakaotalkID' placeholder="연락받을 카톡 ID"/>
                                     </div>
-                                    <div id='client_gender' class="btn-group col-lg-3 col-md-5 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
-                                        <label class='col-lg-2 col-xs-4 margin_label'>성별</label>
+                                    <div id='client_gender' class="btn-group col-lg-3 col-md-6 col-sm-6 col-xs-12 panel_body_padding" data-toggle="buttons">
+                                        <label class='col-lg-2 col-md-2 col-xs-4 margin_label'>성별</label>
                                         <label class="btn btn-default btn_form col-lg-4 col-md-4 col-xs-4 active">
                                             <input type="radio" name="options" id="man" autocomplete="off" required>남자
                                         </label>
@@ -194,22 +194,22 @@
                                             <input type="radio" name="options" id="woman" autocomplete="off">여자
                                         </label>
                                     </div>
-                                    <div id='client_age' class="btn-group col-lg-5 col-md-6 col-md-offset-1 col-sm-6 col-xs-12 panel_body_padding" >
-                                        <label class='col-lg-2 col-xs-4 margin_label'>나이대</label>
-                                        <div class='col-lg-10 col-xs-8 margin_label' data-toggle="buttons" style='padding:0px;'>
-                                            <label class="btn btn-default btn_form col-lg-2 col-xs-4 active">
+                                    <div id='client_age' class="btn-group col-lg-5 col-md-12 col-sm-6 col-xs-12 panel_body_padding" >
+                                        <label class='col-lg-2 col-md-1 col-xs-4 margin_label'>나이대</label>
+                                        <div class='col-lg-10 col-md-10 col-xs-8 margin_label' data-toggle="buttons" style='padding:0px;'>
+                                            <label class="btn btn-default btn_form col-lg-2 col-md-2 col-xs-4 active">
                                                 <input type="radio" name="options" id="age_10" value="10" autocomplete="off" required>10대
                                             </label>
-                                            <label class="btn btn-default btn_form col-lg-2 col-xs-4">
+                                            <label class="btn btn-default btn_form col-lg-2 col-md-2 col-xs-4">
                                                 <input type="radio" name="options" id="age_20" autocomplete="off"> 20대
                                             </label>
-                                            <label class="btn btn-default btn_form col-lg-2 col-xs-4">
+                                            <label class="btn btn-default btn_form col-lg-2 col-md-2 col-xs-4">
                                                 <input type="radio" name="options" id="age_30" autocomplete="off"> 30대
                                             </label>
-                                            <label class="btn btn-default btn_form col-lg-2 col-xs-6">
+                                            <label class="btn btn-default btn_form col-lg-2 col-md-2 col-xs-6">
                                                 <input type="radio" name="options" id="age_40" autocomplete="off"> 40대
                                             </label>
-                                            <label class="btn btn-default btn_form col-lg-3 col-xs-6">
+                                            <label class="btn btn-default btn_form col-lg-3 col-md-2 col-xs-6">
                                                 <input type="radio" name="options" id="age_50" autocomplete="off"> 50대~
                                             </label>
                                         </div>
@@ -260,8 +260,8 @@
                                         <div class='col-lg-4 col-md-4 panel-body datepicker-container'><div class='col-lg-3 col-md-4 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
                                             <input id='move_when' name="start" class='form-control form-control-inline col-xs-9'>
                                         </div>
-                                            <div class='col-lg-8 panel-body'>
-                                                <div class="input-group col-lg-5 col-sm-4 col-xs-12" style="float:left;">
+                                            <div class='col-lg-8 col-md-8 panel-body'>
+                                                <div class="input-group col-lg-5 col-md-6 col-sm-4 col-xs-12" style="float:left;">
                                                     <select id='move_from_country' class="selectpicker" title='국가'>
                                                         <option>콜롬비아</option>
                                                         <option>에콰도르</option>
@@ -275,7 +275,7 @@
                                                     <input id="move_from" type="text" class="form-control" placeholder="출발 도시명" autocomplete="on" name="start">
                                                 </div>
                                                 <div class='col-lg-1'></div>
-                                                <div class="input-group col-lg-5 col-sm-4 col-xs-12" style="float:left;">
+                                                <div class="input-group col-lg-5 col-md-6 col-sm-4 col-xs-12" style="float:left;">
                                                     <select id='move_to_country' class="selectpicker" title='국가'>
                                                         <option>콜롬비아</option>
                                                         <option>에콰도르</option>
@@ -358,11 +358,14 @@
 
                                     <div id='city_body' class='panel-body modal-padding-mobile'>
                                         <div class="form-group">
-                                            <div class='col-lg-4 col-md-4 panel-body datepicker-container'><div class='col-lg-3 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 언제</div>
-                                            <input id='food_when' name="start" class='form-control form-control-inline col-xs-9'>
+                                            <div class='col-lg-4 col-md-4 panel-body datepicker-container'>
+                                                <div class='col-lg-3 col-xs-3 margin_label text-center'> 
+                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 언제
+                                                </div>
+                                                <input id='food_when' name="start" class='form-control form-control-inline col-xs-9'>
                                             </div>
-                                            <div class='col-lg-8 panel-body'>
-                                                <div class="input-group col-lg-5 col-sm-4 col-xs-12" style="float:left;">
+                                            <div class='col-lg-8 col-md-8 panel-body'>
+                                                <div class="input-group col-lg-5 col-md-8 col-sm-4 col-xs-12" style="float:left;">
                                                     <select id='food_country' class="selectpicker" title='국가'>
                                                         <option>멕시코</option>
                                                         <option>콜롬비아</option>
