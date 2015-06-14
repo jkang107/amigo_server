@@ -10,7 +10,7 @@
     <meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
     <meta name="author" content="htmlcoder.me">
     <!-- Mobile Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/logo.png">
     <!-- Web Fonts -->
@@ -33,7 +33,7 @@
     <link href="bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejugothic.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/jejuhallasan.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -222,13 +222,13 @@
                                     <div class="panel-body datepicker-container-range modal-padding-mobile">
                                         <div class="form-group input-daterange">
                                             <div class='col-lg-6 col-sm-6 col-xs-12 panel-body modal-padding-mobile'>
-                                                <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
-                                                    <input id='travel_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-9'>
+                                                <div class='form-group'><div class='col-lg-2 col-xs-4 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
+                                                    <input id='travel_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-8'>
                                                 </div>
                                             </div>
                                             <div class='col-lg-6 col-sm-6 col-xs-12 panel-body modal-padding-mobile'>
-                                                <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
-                                                    <input id='travel_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-9'>
+                                                <div class='form-group'><div class='col-lg-2 col-xs-4 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
+                                                    <input id='travel_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-8'>
                                                 </div>
                                             </div>
                                         </div>
@@ -257,38 +257,38 @@
                                 </div>
                                 <div id='type2_container' style='display:none;'>
                                     <div id='city_body' class='col-lg-12 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
-                                        <div class='col-lg-4 col-md-4 panel-body datepicker-container'><div class='col-lg-3 col-md-4 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
-                                            <input id='move_when' name="start" class='form-control form-control-inline col-xs-9'>
+                                        <div class='col-lg-4 col-md-4 col-xs-12 panel-body datepicker-container modal-padding-mobile'><div class='col-lg-3 col-md-4 col-xs-4 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
+                                            <input id='move_when' name="start" class='form-control form-control-inline col-xs-8'>
                                         </div>
-                                            <div class='col-lg-8 col-md-8 panel-body'>
-                                                <div class="input-group col-lg-5 col-md-6 col-sm-4 col-xs-12" style="float:left;">
-                                                    <select id='move_from_country' class="selectpicker" title='국가'>
-                                                        <option>콜롬비아</option>
-                                                        <option>에콰도르</option>
-                                                        <option>페루</option>
-                                                        <option>볼리비아</option>
-                                                        <option>칠레</option>
-                                                        <option>아르헨티나</option>
-                                                        <option>브라질</option>
-                                                        <option>멕시코</option>
-                                                    </select>
-                                                    <input id="move_from" type="text" class="form-control" placeholder="출발 도시명" autocomplete="on" name="start">
-                                                </div>
-                                                <div class='col-lg-1'></div>
-                                                <div class="input-group col-lg-5 col-md-6 col-sm-4 col-xs-12" style="float:left;">
-                                                    <select id='move_to_country' class="selectpicker" title='국가'>
-                                                        <option>콜롬비아</option>
-                                                        <option>에콰도르</option>
-                                                        <option>페루</option>
-                                                        <option>볼리비아</option>
-                                                        <option>칠레</option>
-                                                        <option>아르헨티나</option>
-                                                        <option>브라질</option>
-                                                        <option>멕시코</option>
-                                                    </select>
-                                                    <input type="text" id="move_to" class="form-control" placeholder="도착 도시명" autocomplete="on" name="end">
-                                                </div>
+                                        <div class='col-lg-8 col-md-8 col-xs-12 panel-body'>
+                                            <div class="input-group col-lg-5 col-md-6 col-sm-4 col-xs-12" style="float:left;">
+                                                <select id='move_from_country' class="selectpicker" title='국가'>
+                                                    <option>멕시코</option>
+                                                    <option>콜롬비아</option>
+                                                    <option>에콰도르</option>
+                                                    <option>페루</option>
+                                                    <option>볼리비아</option>
+                                                    <option>칠레</option>
+                                                    <option>아르헨티나</option>
+                                                    <option>브라질</option>
+                                                </select>
+                                                <input id="move_from" type="text" class="form-control" placeholder="출발 도시명" autocomplete="on" name="start">
                                             </div>
+                                            <div class='col-lg-1'></div>
+                                            <div class="input-group col-lg-5 col-md-6 col-sm-4 col-xs-12" style="float:left;">
+                                                <select id='move_to_country' class="selectpicker" title='국가'>
+                                                    <option>멕시코</option>
+                                                    <option>콜롬비아</option>
+                                                    <option>에콰도르</option>
+                                                    <option>페루</option>
+                                                    <option>볼리비아</option>
+                                                    <option>칠레</option>
+                                                    <option>아르헨티나</option>
+                                                    <option>브라질</option>
+                                                </select>
+                                                <input type="text" id="move_to" class="form-control" placeholder="도착 도시명" autocomplete="on" name="end">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div id='country_body' class="panel-body modal-padding-mobile">
                                         <div id="transportation_button" class="btn-group panel_body_padding col-lg-12 col-sm-12 col-xs-12">
@@ -320,13 +320,13 @@
                                 <div class="panel-body datepicker-container-range modal-padding-mobile">
                                         <div class="form-group input-daterange">
                                             <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
-                                                <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
-                                                    <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-9'>
+                                                <div class='form-group'><div class='col-lg-2 col-xs-4 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
+                                                    <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-8'>
                                                 </div>
                                             </div>
                                             <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
-                                                <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
-                                                    <input id='tour_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-9'>
+                                                <div class='form-group'><div class='col-lg-2 col-xs-4 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
+                                                    <input id='tour_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-8'>
                                                 </div>
                                             </div>
                                         </div>
@@ -335,6 +335,7 @@
                                             <label class='margin_label'>투어/트레킹 명 </label>
                                             <div class="input-group form-group col-lg-8 col-sm-12 col-xs-12">
                                                 <select id='tour_contry' class="selectpicker" title='국가'>
+                                                    <option>멕시코</option>
                                                     <option>콜롬비아</option>
                                                     <option>에콰도르</option>
                                                     <option>페루</option>
@@ -342,7 +343,6 @@
                                                     <option>칠레</option>
                                                     <option>아르헨티나</option>
                                                     <option>브라질</option>
-                                                    <option>멕시코</option>
                                                 </select>
                                                 <input type="text" id="tour_name" class="form-control tour_placeholder" placeholder="ex) 우유니 투어, 토레스 델 파이네" name="tour_name"/>
                                             </div>
@@ -419,20 +419,21 @@
                         <div class="space"></div>
                         <div class="col-md-4 col-xs-12">
                             <div id="about" class="row">
-
-                                <hr>
-                                    <h3 class="text-center">F i l t e r</h3>
-                                <hr>
+                                <div class='onlyBigScreen'>
+                                    <hr>
+                                        <h3 class="text-center">F i l t e r</h3>
+                                    <hr>
+                                </div>
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ducimus explicabo quibusdam temporibus deserunt doloremque pariatur ea, animi a. Delectus similique atque eligendi, enim vel reiciendis deleniti neque aliquid, sit?</p> -->
                                 <div class='filter text-center filter_all' data-filter="all">Show All</div>
-                                <div class='filter text-center' data-filter='.mexico'>멕시코</div>
-                                <div class='filter text-center' data-filter='.colombia'>콜롬비아</div>
-                                <div class='filter text-center' data-filter='.equador'>에콰도르</div>
-                                <div class='filter text-center' data-filter='.peru'>페루</div>
-                                <div class='filter text-center' data-filter='.bolivia'>볼리비아</div>
-                                <div class='filter text-center' data-filter='.chile'>칠레</div>
-                                <div class='filter text-center' data-filter='.argentina'>아르헨티나</div>
-                                <div class='filter text-center' data-filter='.brazil'>브라질</div>
+                                <div class='filter text-center' data-filter='.mexico'>#멕시코</div>
+                                <div class='filter text-center' data-filter='.colombia'>#콜롬비아</div>
+                                <div class='filter text-center' data-filter='.equador'>#에콰도르</div>
+                                <div class='filter text-center' data-filter='.peru'>#페루</div>
+                                <div class='filter text-center' data-filter='.bolivia'>#볼리비아</div>
+                                <div class='filter text-center' data-filter='.chile'>#칠레</div>
+                                <div class='filter text-center' data-filter='.argentina'>#아르헨티나</div>
+                                <div class='filter text-center' data-filter='.brazil'>#브라질</div>
                                 <!-- <div class="space"></div> -->
                             </div>
                             <div class="row">

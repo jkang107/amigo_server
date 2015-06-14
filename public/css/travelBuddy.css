@@ -159,7 +159,10 @@ body{
   background-color: white;
   float: left;
   position: relative;
-  font-family: 'Jeju Hallasan', serif;
+  /* font-family: 'Jeju Hallasan', serif; */
+  /* font-family:'Nanum Gothic', monospace; */
+  font-family: 'Jeju Gothic', serif;
+
   opacity: 0.8;
   margin: 2px;
   color: black;
