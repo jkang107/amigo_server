@@ -201,8 +201,8 @@ var addNewTravel = function() {
             travelInfo['when_from'] = dateFromStr;
             travelInfo['when_to'] = dateToStr;
             travelInfo['country_from'] = countryArr;
-            //travelInfo['comment'] = detail_txt;
-            travelInfo['comment'] = "test";
+            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] = "test";
             //travelInfo['comment'] += $("#travel_detail1").val();
 
             panelStyle = "panel-success";
@@ -231,7 +231,9 @@ var addNewTravel = function() {
             travelInfo['country_to'] = countryToStr;
             travelInfo['city_to'] = cityToStr;
             travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
-            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] = detail_txt;
+            travelInfo['comment'] = "test";
+
             //travelInfo['comment'] += $("#travel_detail2").val();
 
             panelStyle = "panel-info";
