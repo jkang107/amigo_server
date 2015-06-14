@@ -42,7 +42,7 @@ app.get('/mylist', function(req, res) {
 
 
 var client = mysql.createConnection({
-    host:process.env.DB_HOST || 'localhost',
+    host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || '3307',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PW || '0724',
@@ -54,70 +54,39 @@ app.listen(port, function() {
     console.log("Listening on " + port);
 });
 
-
-/*app.get('/read', function(req, res) {
-    fs.readFile(file, 'utf8', function(err, data) {
-        if (err) {
-            console.log("error: " + err);
-            return;
-        }
-        res.send(data);
-    });
-});
-
-// TODO: write file implementation
-app.post('/write', function(req, res) {
-    console.log(req.body);
-
-    fs.writeFile(file, JSON.stringify(req.body), function(err, data) {
-        if (err) {
-            console.log("error: " + err);
-            return;
-        }
-        console.log("file written");
-    });
-
-
-    res.send(req.body);
-});*/
-
 app.post("/sendTravelInfo", function(req, res) {
     console.log(req.body);
 
     var curTime = req.body.time;
-    console.log("----- time: " + curTime);
     var travelInfo = req.body.travelInfo;
     var userId = travelInfo.userId;
     var travelType = travelInfo.travel_type;
 
     var query;
-    
 
     switch (travelType) {
         case "travelWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, comment, kakao_thumbnail) VALUES ('" 
-                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" 
-                + travelInfo.when_from + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "');", function(err, rows) {
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, comment, kakao_thumbnail, timestamp) VALUES ('" + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');", function(err, rows) {
                 if (err) throw err;
-                //console.log(rows);
-                //res.send(rows);
             });
             break;
         case "moveWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, country_to, city_from, city_to, transportation, comment, kakao_thumbnail, timestamp) VALUES ('" 
-                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from + "', '" 
-                + travelInfo.country_from + "', '" + travelInfo.country_to + "', '" + travelInfo.city_from + "', '" + travelInfo.city_to + "', '" 
-                + travelInfo.transportation + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, country_to, city_from, city_to, transportation, comment, kakao_thumbnail, timestamp) VALUES ('" + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from + "', '" + travelInfo.country_from + "', '" + travelInfo.country_to + "', '" + travelInfo.city_from + "', '" + travelInfo.city_to + "', '" + travelInfo.transportation + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');", function(err, rows) {
+                if (err) throw err;
+
+            });
             break;
         case "tourWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, tour_name, comment, kakao_thumbnail, timestamp) VALUES ('" 
-                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from 
-                + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.tour_name + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, tour_name, comment, kakao_thumbnail, timestamp) VALUES ('" + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.tour_name + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');", function(err, rows) {
+                if (err) throw err;
+
+            });
             break;
         case "foodWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, city_from, comment, kakao_thumbnail, timestamp) VALUES ('" 
-                + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from 
-                + "', '" + travelInfo.country_from + "', '" + travelInfo.city_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');");
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, city_from, comment, kakao_thumbnail, timestamp) VALUES ('" + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" + travelInfo.when_from + "', '" + travelInfo.country_from + "', '" + travelInfo.city_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');", function(err, rows) {
+                if (err) throw err;
+
+            });
             break;
     }
     res.send("thank you client!");
@@ -150,20 +119,21 @@ var sendgrid = require('sendgrid')(process.env.SENDGRID_ID, process.env.SENDGRID
 
 app.post("/sendMail", function(req, res) {
     sendgrid.send({
-      to:       'uresj3@naver.com',
-      from:     req.body.from,
-      subject:  'Hello Developer!',
-      text:     req.body.message,
-      fromname: req.body.name
+        to: 'uresj3@naver.com',
+        from: req.body.from,
+        subject: 'Hello Developer!',
+        text: req.body.message,
+        fromname: req.body.name
     }, function(err, json) {
-      if (err) { return console.error(err); }
-      console.log(json);
+        if (err) {
+            return console.error(err);
+        }
+        console.log(json);
     });
 });
 
 app.post("/getMyList", function(req, res) {
     var userId = parseInt(req.body.kakaoid);
-    //console.log("++++++userId: " + userId);
     var queryString = 'select * from travel where userId = ' + userId;
     var query = client.query(queryString, function(err, rows) {
         if (err) throw err;
@@ -174,7 +144,7 @@ app.post("/getMyList", function(req, res) {
     console.log(query);
 });
 
-app.post("/deleteItem", function(req,res) {
+app.post("/deleteItem", function(req, res) {
     var index = req.body.index;
     var queryString = 'delete from travel where `index` = ' + index;
     var query = client.query(queryString, function(err, rows) {

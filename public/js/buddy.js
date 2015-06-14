@@ -181,7 +181,6 @@ var addNewTravel = function() {
         transportation: null,
         tour_name: null,
         comment: null,
-        /*comment: "카카오톡 ID: " + $("#kakaoID").val() + '<br>',*/
         kakao_thumbnail: localStorage.getItem("thumbnail")
         
     };
@@ -202,8 +201,6 @@ var addNewTravel = function() {
             travelInfo['when_to'] = dateToStr;
             travelInfo['country_from'] = countryArr;
             travelInfo['comment'] = detail_txt;
-            //travelInfo['comment'] = "test";
-            //travelInfo['comment'] += $("#travel_detail1").val();
 
             panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
@@ -227,7 +224,6 @@ var addNewTravel = function() {
             travelInfo['city_to'] = cityToStr;
             travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
             travelInfo['comment'] = detail_txt;
-            //travelInfo['comment'] += $("#travel_detail2").val();
 
             panelStyle = "panel-info";
             titleImage = "taxi_64.png";
@@ -246,7 +242,6 @@ var addNewTravel = function() {
             travelInfo['country_from'] = countryFromStr;
             travelInfo['tour_name'] = tourStr;
             travelInfo['comment'] = detail_txt;
-            //travelInfo['comment'] += $("#travel_detail3").val();
 
             panelStyle = "panel-warning";
             titleImage = "biking_64.png";
@@ -263,7 +258,6 @@ var addNewTravel = function() {
             travelInfo['country_from'] = countryFromStr;
             travelInfo['city_from'] = cityFromStr;
             travelInfo['comment'] = detail_txt;
-            //travelInfo['comment'] += $("#travel_detail4").val();
 
             panelStyle = "panel-danger";
             titleImage = "food_64.png";
@@ -336,10 +330,8 @@ function createNewObject(travel, count) {
     
     var _object = $("#heading_t_" + count);
 
-    // ----------test ----------
     var inner1 = $("<div class='img_div'></div>");
     _object.append(inner1);
-    //-----------test--------------
 
     //add kakaotalk
     inner1.append("<img src='" + travel.kakao_thumbnail + "' class='img-circle inner_list' alt='kakaotalk thumbnail' width='40' height='40'>");
@@ -347,7 +339,6 @@ function createNewObject(travel, count) {
     //add travel type
     inner1.append("<img src='./bootstrap/images/" + titleImage + "' class='inner_list' alt='travel' width='40' height='40'>");
 
-    // -------------------test ---------------
     var inner2;
     if(info_div_width != undefined) {
         inner2 = $("<div class='info_div' style='width:" + info_div_width + "px'></div>");
@@ -358,8 +349,6 @@ function createNewObject(travel, count) {
 
     _object.append(inner2);
     _object = inner2;
-
-    // ---------------------------------------
 
 
     //add gender
