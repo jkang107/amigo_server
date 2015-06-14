@@ -770,10 +770,10 @@ textarea {
 	#firstPage_btn_container {
 		margin-top: 100px;
 	}
-	#travelList_container {
+	/* #travelList_container {
 	  height: 675px;
 	  overflow-y:auto;
-	}
+	} */
 	#login {
 		transform: translate(-50%, -50%);
 	}
