@@ -195,11 +195,7 @@ var addNewTravel = function() {
             var dateFromStr = $("#travel_date_from").val();
             var dateToStr = $("#travel_date_to").val();
 
-            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 여행가요 <i class="fa fa-quote-right"></i></span><br><br>' 
-                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
-                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryArr.toString() + '<br>' 
-                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
-                    + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail1").val().replace(/\n/g, '<br/>');
+            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> test <i class="fa fa-quote-right"></i></span><br><br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + " - " + dateToStr + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryArr.toString() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> test ID: </span>' + $("#kakaoID").val() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail1").val().replace(/\n/g, '<br/>');
 
             travelInfo['travel_type'] = travelType;
             travelInfo['when_from'] = dateFromStr;
