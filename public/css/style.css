@@ -237,7 +237,8 @@ blockquote {
 	position: relative;
 }
 .bg-image-1 {
-	background: url("../images/bg-image-1.jpg") 50% 0px no-repeat;
+	/* background: url("../images/bg-image-1.jpg") 50% 0px no-repeat; */
+	background: #D2DFEC;
 }
 .bg-image-2 {
 	background: url("../images/bg-image-2.jpg") 50% 0px no-repeat;
@@ -845,6 +846,11 @@ textarea {
 	}
 
 }
+@media (max-width:768px) {
+#myCarousel {
+	    display: none;
+	}
+}
 @media (max-width:767px) {
 
 	.inner_text {
@@ -956,9 +962,9 @@ textarea {
 		margin-top: 40px;
 	}
 
-	#myCarousel {
+	/* #myCarousel {
 	    display: none;
-	}
+	} */
 	.filter.filter_all {
 		width: 32%
 	}

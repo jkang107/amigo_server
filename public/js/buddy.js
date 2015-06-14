@@ -203,7 +203,7 @@ var addNewTravel = function() {
             travelInfo['country_from'] = countryArr;
             travelInfo['comment'] = detail_txt;
 
-            panelStyle = "panel-success";
+            //panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
 
 
@@ -226,7 +226,7 @@ var addNewTravel = function() {
             travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
             travelInfo['comment'] = detail_txt;
 
-            panelStyle = "panel-info";
+            //panelStyle = "panel-info";
             titleImage = "taxi_64.png";
             break;
         case "tourWith":
@@ -244,7 +244,7 @@ var addNewTravel = function() {
             travelInfo['tour_name'] = tourStr;
             travelInfo['comment'] = detail_txt;
 
-            panelStyle = "panel-warning";
+            //panelStyle = "panel-warning";
             titleImage = "biking_64.png";
             break;
         case "foodWith":
@@ -260,7 +260,7 @@ var addNewTravel = function() {
             travelInfo['city_from'] = cityFromStr;
             travelInfo['comment'] = detail_txt;
 
-            panelStyle = "panel-danger";
+            //panelStyle = "panel-danger";
             titleImage = "food_64.png";
             break;
 
@@ -273,19 +273,19 @@ var addNewTravel = function() {
 function returnTravelType(travelType) {
     switch (travelType) {
         case "travelWith":
-            panelStyle = "panel-success";
+            //panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
             break;
         case "moveWith":
-            panelStyle = "panel-info";
+            //panelStyle = "panel-info";
             titleImage = "taxi_64.png";
             break;
         case "tourWith":
-            panelStyle = "panel-warning";
+            //panelStyle = "panel-warning";
             titleImage = "biking_64.png";
             break;
         case "foodWith":
-            panelStyle = "panel-danger";
+            //panelStyle = "panel-danger";
             titleImage = "food_64.png";
             break;
     }
@@ -325,7 +325,8 @@ var info_div_width = 0;
 
 function createNewObject(travel, count) {
 
-    $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default " + panelStyle + "'></div>");
+    //$("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default " + panelStyle + "'></div>");
+    $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default'></div>");
 
     $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title mylist-panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped line_container' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
 
