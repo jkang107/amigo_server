@@ -217,7 +217,11 @@ var addNewTravel = function() {
             var countryToStr = $("#move_to_country option:selected").val();
             var cityToStr = $("#move_to").val();
 
-            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 이동해요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + cityFromStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr +'<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail2").val().replace(/\n/g, '<br/>');
+            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> fff <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + cityFromStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr +'<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " fff ID: </span>" + $("#kakaoID").val() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail2").val().replace(/\n/g, '<br/>');
 
 
             travelInfo['travel_type'] = travelType;
@@ -241,10 +245,10 @@ var addNewTravel = function() {
             var countryFromStr = $("#tour_contry option:selected").val();
             var tourStr = $("#tour_name").val();
 
-            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> test <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 투어/트레킹해요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryFromStr + "/" + tourStr + '<br>' 
-                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " test ID: </span>" + $("#kakaoID").val() + '<br>' 
+                    + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail3").val().replace(/\n/g, '<br/>');
 
 
