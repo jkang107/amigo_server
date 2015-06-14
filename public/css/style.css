@@ -812,6 +812,9 @@ textarea {
 	}
 } 
 @media (max-width:450px) {
+	body {
+		font-size: 13px;
+	}
 	.onlyBigScreen {
 		display: none;
 	}
