@@ -91,13 +91,17 @@ app.post("/sendTravelInfo", function(req, res) {
     var travelType = travelInfo.travel_type;
 
     var query;
-    res.send("thank you client!");
+    
 
     switch (travelType) {
         case "travelWith":
-            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, comment, kakao_thumbnail, timestamp) VALUES ('" 
+            query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, when_to, country_from, comment, kakao_thumbnail) VALUES ('" 
                 + userId + "', '" + travelType + "', '" + travelInfo.sex + "', '" + travelInfo.age + "', '" 
-                + travelInfo.when_from + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');");
+                + travelInfo.when_from + "', '" + travelInfo.when_to + "', '" + travelInfo.country_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "');", function(err, rows) {
+                if (err) throw err;
+                //console.log(rows);
+                //res.send(rows);
+            });
             break;
         case "moveWith":
             query = client.query("INSERT INTO travel (userId, type, sex, age, when_from, country_from, country_to, city_from, city_to, transportation, comment, kakao_thumbnail, timestamp) VALUES ('" 
@@ -116,7 +120,7 @@ app.post("/sendTravelInfo", function(req, res) {
                 + "', '" + travelInfo.country_from + "', '" + travelInfo.city_from + "', '" + travelInfo.comment + "', '" + travelInfo.kakao_thumbnail + "', '" + curTime + "');");
             break;
     }
-
+    res.send("thank you client!");
     res.end();
 });
 

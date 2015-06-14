@@ -195,7 +195,7 @@ var addNewTravel = function() {
             var dateFromStr = $("#travel_date_from").val();
             var dateToStr = $("#travel_date_to").val();
 
-            detail_txt = "<span class='comment_type_txt'><i class='fa fa-quote-left'></i> 같이 여행가요 <i class='fa fa-quote-right'></i></span>" + '<br><br>' 
+            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 여행가요 <i class="fa fa-quote-right"></i></span><br><br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " When? </span>" + dateFromStr + " - " + dateToStr + '<br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " Where? </span>" + countryArr.toString() + '<br>' 
                     + '<span class="comment_title_txt"><i class="fa fa-check"></i>' + " 카톡 ID: </span>" + $("#kakaoID").val() + '<br>' 
@@ -205,7 +205,8 @@ var addNewTravel = function() {
             travelInfo['when_from'] = dateFromStr;
             travelInfo['when_to'] = dateToStr;
             travelInfo['country_from'] = countryArr;
-            travelInfo['comment'] = detail_txt;
+            //travelInfo['comment'] = detail_txt;
+            travelInfo['comment'] = "test";
             //travelInfo['comment'] += $("#travel_detail1").val();
 
             panelStyle = "panel-success";
