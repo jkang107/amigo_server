@@ -770,7 +770,7 @@ textarea {
 	#firstPage_btn_container {
 		margin-top: 100px;
 	}
-	/* #travelList_container {
+	/* #travelList_container { 내부 스크롤 생기니까 아무래도 불편함.
 	  height: 675px;
 	  overflow-y:auto;
 	} */
@@ -811,6 +811,22 @@ textarea {
 	  	vertical-align: middle;
 	  	margin-right: 4px;
 	}
+	.img_div {
+		float: left;
+	}
+	.info_div {
+		
+		  /* width: 0px; */
+		  overflow: hidden;
+		  /* float: left; */
+		  /* position: relative; */
+		  /* display: inline-block; */
+		  text-overflow: ellipsis;
+	}
+	.inner_text_date {
+		float: right;
+	  	line-height: 19px; 
+	}
 } 
 @media (max-width:450px) {
 	body {
@@ -835,7 +851,11 @@ textarea {
 	.banner-caption h1{
 		font-size: 30px;
 	}
-
+	/* .inner_text_date {
+		float: right;
+	  	line-height: 19px;
+	  	float: none;
+	} */
 }
 @media (min-width:450px) and (max-width:767px) {
 	#login {
@@ -844,10 +864,13 @@ textarea {
 	.banner-caption h1{
 		font-size: 40px;
 	}
-
+	.inner_text_date {
+		float: right;
+	  	line-height: 19px;
+	}
 }
 @media (max-width:768px) {
-#myCarousel {
+	#myCarousel {
 	    display: none;
 	}
 }
@@ -866,7 +889,6 @@ textarea {
 	}
 	.img_div {
 		float: left;
-
 	}
 	.info_div {
 		float: left;

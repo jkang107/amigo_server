@@ -344,7 +344,7 @@ function createNewObject(travel, count) {
     inner1.append("<img src='./bootstrap/images/" + titleImage + "' class='inner_list' alt='travel' width='40' height='40'>");
 
     var inner2;
-    if (info_div_width != undefined) {
+    if (info_div_width !== undefined && window.innerWidth < 768) {
         inner2 = $("<div class='info_div' style='width:" + info_div_width + "px'></div>");
     } else {
         inner2 = $("<div class='info_div'></div>");
@@ -474,7 +474,7 @@ function createNewObject(travel, count) {
             tmp_str_country = travel.country_from.toString();
         }
     }
-    _object.append("<span id='_country_from' class='inner_text'>#" + tmp_str_country + "</span>");
+    _object.append("<span id='_country_from' class='inner_text inner_country'>#" + tmp_str_country + "</span>");
 
 
     //add travel city_to
