@@ -823,10 +823,10 @@ textarea {
 		  /* display: inline-block; */
 		  text-overflow: ellipsis;
 	}
-	.inner_text_date {
+	/* .inner_text_date {
 		float: right;
 	  	line-height: 19px; 
-	}
+	} */
 } 
 @media (max-width:450px) {
 	body {
@@ -864,12 +864,12 @@ textarea {
 	.banner-caption h1{
 		font-size: 40px;
 	}
-	.inner_text_date {
+	/* .inner_text_date {
 		float: right;
 	  	line-height: 19px;
-	}
+	} */
 }
-@media (max-width:768px) {
+@media (max-width:991px) {
 	#myCarousel {
 	    display: none;
 	}
