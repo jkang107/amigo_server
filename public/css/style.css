@@ -797,10 +797,10 @@ textarea {
 		width: 55px;
 		height: 55px;
 	}
-	.mylist {
+	/*.mylist {
 	  padding-top: 120px;
 	  color: black;
-	}
+	}*/
 	.inner_text {
 		padding:7px; 
 		border:solid 1px #a1a1a1; 
@@ -869,9 +869,19 @@ textarea {
 	  	line-height: 19px;
 	} */
 }
+@media (min-width:992px) and (max-width:1920px) {
+	.mylist {
+	  padding-top: 120px;
+	  color: black;
+	}
+}
 @media (max-width:991px) {
 	#myCarousel {
 	    display: none;
+	}
+	.mylist {
+	  padding-top: 200px;
+	  color: black;
 	}
 }
 @media (max-width:767px) {

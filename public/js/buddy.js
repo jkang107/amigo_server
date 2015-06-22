@@ -373,25 +373,7 @@ function createNewObject(travel, count) {
     _object.append("<span id='_age' class='inner_text inner_text_gender'>" + tmp_age + "</span>");
 
 
-    //transportation
-    if (travel.transportation !== null) {
-        var tmp_trans = travel.transportation;
-        switch (tmp_trans) {
-            case "bus":
-                tmp_trans = "버스이동";
-                break;
-
-            case "taxi":
-                tmp_trans = "택시이동";
-                break;
-
-            case "metro":
-                tmp_trans = "지하철이동";
-                break;
-        }
-        _object.append("<span id='_transportation' class='inner_text inner_text_trans'>#" + tmp_trans + "</span>");
-    }
-
+    //add country
     var tmp_country_class;
     if (travel.country_from instanceof Array || travel.country_from.split(",").length > 1) {
         var tmp_travel_country_array = new Array;
@@ -474,7 +456,26 @@ function createNewObject(travel, count) {
             tmp_str_country = travel.country_from.toString();
         }
     }
-    _object.append("<span id='_country_from' class='inner_text inner_country'>#" + tmp_str_country + "</span>");
+    _object.append("<span id='_country_from' class='inner_text inner_country'>" + tmp_str_country + "</span>");
+
+    //transportation
+    if (travel.transportation !== null) {
+        var tmp_trans = travel.transportation;
+        switch (tmp_trans) {
+            case "bus":
+                tmp_trans = "버스이동";
+                break;
+
+            case "taxi":
+                tmp_trans = "택시이동";
+                break;
+
+            case "metro":
+                tmp_trans = "지하철이동";
+                break;
+        }
+        _object.append("<span id='_transportation' class='inner_text inner_text_trans'>#" + tmp_trans + "</span>");
+    }
 
 
     //add travel city_to
