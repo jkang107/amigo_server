@@ -109,8 +109,6 @@ function kakao_logout() {
     Kakao.Auth.logout();
     isLogin = false;
     afterLogout();
-    //$('.dropdown-menu').dropdown('toggle');
-    /*return false;*/
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -128,9 +126,9 @@ function initialize() {
 
 function popupLoginWindow() {
     if (!isLogin) {
-        //$("#login").css("display", "block");
         $("#login").css("visibility", "visible");
         $("#login_fade").css("display", "block");
+        event.preventDefault();
     }
 }
 
@@ -300,20 +298,18 @@ var showTravelForm = function() {
     } else {
         $('#createTravel').css('z-index', '-1');
         isPressNewBtn = true;
-        event.preventDefault();
+        //event.preventDefault();
         popupLoginWindow();
     }
 };
 
 $("#login_fade").click(function() {
     $("#login_fade").css("display", "none");
-    //$("#login").css("display", "none");
     $("#login").css("visibility", "hidden");
 });
 
 $("#login_close_btn").click(function() {
     $("#login_fade").css("display", "none");
-    //$("#login").css("display", "none");
     $("#login").css("visibility", "hidden");
 });
 
@@ -329,7 +325,6 @@ var info_div_width = 0;
 
 function createNewObject(travel, count) {
 
-    //$("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default " + panelStyle + "'></div>");
     $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default'></div>");
 
     $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title mylist-panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped line_container' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
