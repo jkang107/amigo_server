@@ -128,7 +128,8 @@ function initialize() {
 
 function popupLoginWindow() {
     if (!isLogin) {
-        $("#login").css("display", "block");
+        //$("#login").css("display", "block");
+        $("#login").css("visibility", "visible");
         $("#login_fade").css("display", "block");
     }
 }
@@ -305,12 +306,14 @@ var showTravelForm = function() {
 
 $("#login_fade").click(function() {
     $("#login_fade").css("display", "none");
-    $("#login").css("display", "none");
+    //$("#login").css("display", "none");
+    $("#login").css("visibility", "hidden");
 });
 
 $("#login_close_btn").click(function() {
     $("#login_fade").css("display", "none");
-    $("#login").css("display", "none");
+    //$("#login").css("display", "none");
+    $("#login").css("visibility", "hidden");
 });
 
 var tmp_new_travel;

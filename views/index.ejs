@@ -59,7 +59,7 @@
                     <div class="header-left clearfix">
                         <!-- logo -->
                         <div class="logo smooth-scroll">
-                            <a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
+                            <a href="#banner"><img id="logo" src="images/logo.png" alt="find a travel buddy"></a>
                         </div>
                         <!-- name-and-slogan -->
                         <div class="site-name-and-slogan smooth-scroll">
@@ -94,7 +94,7 @@
                                         <ul class="nav navbar-nav navmenu-fixed-left offcanvas">
                                             <li class="active"><a href="#banner">홈</a></li>
                                             <li><a id='viewList' href="#about">여행 친구 찾기</a></li>
-                                            <li><a href="#contact">개발자에게 힘 보태기</a></li>
+                                            <li><a href="#contact">문의하기</a></li>
                                             <li id='login_container' class="dropdown"><a id='login_name' onclick="javascript:popupLoginWindow()" ontouchstart="javascript:popupLoginWindow()">로그인</a>
                                             </li>
                                         </ul>
@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <!-- login star -->
-                <div id='login_container'>
+                <div id='login_btn_container'>
                     <div id='login_fade'></div>
                     <div id='login'>
                         <div class='login_text'>카카오톡으로 로그인하기</div>
@@ -156,28 +156,28 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Step 1. Select travel type</h3>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="text-center">
+                                <div class="panel-body modal-padding-mobile">
+                                    <!-- <div class="text-center"> -->
                                     <div id='travel_type' class="btn-group col-lg-12 col-md-12 modal-padding-mobile " data-toggle="buttons">
                                         <label id="travelWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6 active">
                                             <input type="radio" name="options" autocomplete="off">
-                                            <img id="travelWith" src='./bootstrap/images/travel_man_64.png' class='type_img'/> 같이 여행해요
+                                            <img id="travelWith" src='./bootstrap/images/travel_man_64.png' class='type_img' alt='같이 여행해요'/> 같이 여행해요
                                         </label>
                                         <label id="moveWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
                                             <input type="radio" name="options" id="moveWith" autocomplete="off">
-                                            <img id='moveWith' src='./bootstrap/images/taxi_64.png' class='type_img'/> 같이 이동해요
+                                            <img id='moveWith' src='./bootstrap/images/taxi_64.png' class='type_img' alt='같이 이동해요'/> 같이 이동해요
                                         </label>
                                         <label id="tourWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
                                             <input type="radio" name="options" autocomplete="off">
-                                            <img id="tourWith" src='./bootstrap/images/biking_64.png' class='type_img'/> 같이 떠나요
+                                            <img id="tourWith" src='./bootstrap/images/biking_64.png' class='type_img' alt='같이 떠나요' /> 같이 떠나요
                                         </label>
                                         <label id="foodWith" class="btn btn-default col-lg-3 col-sm-6 col-xs-6">
                                             <input type="radio" name="options" id="foodWith" autocomplete="off">
-                                            <img id="foodWith" src='./bootstrap/images/food_64.png' class='type_img' /> 같이 식사해요
+                                            <img id="foodWith" src='./bootstrap/images/food_64.png' class='type_img' alt='같이 식사해요'/> 같이 식사해요
                                         </label>
                                     </div>
                                 </div>
-                                </div>
+                                <!-- </div> -->
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Step 2. About you</h3>
                                 </div>
@@ -297,15 +297,15 @@
                                             <div class='panel-body' data-toggle="buttons">
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4 active">
                                                 <input type="radio" name="options" id="taxi" autocomplete="off">
-                                                <img src='./bootstrap/images/taxi-64.png' class='type_img'/>
+                                                <img src='./bootstrap/images/taxi-64.png' class='type_img' alt='택시' />
                                             </label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
                                                 <input type="radio" name="options" id="bus" autocomplete="off">
-                                                <img src='./bootstrap/images/bus-64.png' class='type_img'/>
+                                                <img src='./bootstrap/images/bus-64.png' class='type_img' alt='버스' />
                                             </label>
                                             <label class="btn btn-default col-lg-4 col-sm-4 col-xs-4">
                                                 <input type="radio" name="options" id="metro" autocomplete="off">
-                                                <img src='./bootstrap/images/rail_64.png' class='type_img'/>
+                                                <img src='./bootstrap/images/rail_64.png' class='type_img' alt='기차'/>
                                             </label>
                                             </div>
                                         </div>
@@ -318,40 +318,47 @@
                                     </div>
                                 </div>
                                 <div id='type3_container' style='display:none;'>
-                                <div class="panel-body datepicker-container-range modal-padding-mobile">
+                                    <div class="panel-body datepicker-container-range modal-padding-mobile">
                                         <div class="form-group input-daterange">
                                             <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
-                                                <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일</div>
-                                                    <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-8'>
+                                                <div class='form-group'>
+                                                    <div class='col-lg-2 col-xs-3 margin_label text-center'>
+                                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 출발일
+                                                    </div>
+                                                        <input id='tour_date_from' data-provide="datepicker" name="start" class='form-control form-control-inline col-lg-5 col-xs-8'>
                                                 </div>
                                             </div>
                                             <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12 panel-body modal-padding-mobile'>
-                                                <div class='form-group'><div class='col-lg-2 col-xs-3 margin_label text-center'> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일</div>
+                                                <div class='form-group'>
+                                                    <div class='col-lg-2 col-xs-3 margin_label text-center'> 
+                                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 도착일
+                                                    </div>
                                                     <input id='tour_date_to' data-provide="datepicker" name="end" class='form-control form-control-inline col-lg-5 col-xs-8'>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div id='tour_body' class="panel-body modal-padding-mobile">
-                                            <label class='margin_label'>투어/트레킹 명 </label>
-                                            <div class="input-group form-group col-lg-8 col-sm-12 col-xs-12">
-                                                <select id='tour_contry' class="selectpicker" title='국가'>
-                                                    <option>멕시코</option>
-                                                    <option>콜롬비아</option>
-                                                    <option>에콰도르</option>
-                                                    <option>페루</option>
-                                                    <option>볼리비아</option>
-                                                    <option>칠레</option>
-                                                    <option>아르헨티나</option>
-                                                    <option>브라질</option>
-                                                </select>
-                                                <input type="text" id="tour_name" class="form-control tour_placeholder" placeholder="ex) 우유니 투어, 토레스 델 파이네" name="tour_name"/>
+                                        <!-- </div> -->
+                                        <div id='tour_body' class="panel-body modal-padding-mobile">
+                                                <label class='margin_label'>투어/트레킹 명 </label>
+                                                <div class="input-group form-group col-lg-8 col-sm-12 col-xs-12">
+                                                    <select id='tour_contry' class="selectpicker" title='국가'>
+                                                        <option>멕시코</option>
+                                                        <option>콜롬비아</option>
+                                                        <option>에콰도르</option>
+                                                        <option>페루</option>
+                                                        <option>볼리비아</option>
+                                                        <option>칠레</option>
+                                                        <option>아르헨티나</option>
+                                                        <option>브라질</option>
+                                                    </select>
+                                                    <input type="text" id="tour_name" class="form-control tour_placeholder" placeholder="ex) 우유니 투어, 토레스 델 파이네" name="tour_name"/>
+                                                </div>
+                                        </div>
+                                        <div id='comment_body' class="panel-body modal-padding-mobile">
+                                            <div class="form-group">
+                                                <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
+                                                <textarea id='travel_detail3' class="form-control" rows="3"></textarea>
                                             </div>
-                                    </div>
-                                    <div id='comment_body' class="panel-body modal-padding-mobile">
-                                        <div class="form-group">
-                                            <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
-                                            <textarea id='travel_detail3' class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -361,8 +368,7 @@
                                         <div class="form-group">
                                             <div class='col-lg-4 col-md-4 panel-body datepicker-container'>
                                                 <div class='col-lg-3 col-xs-3 margin_label text-center'> 
-                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 언제
-                                                </div>
+                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 언제</div>
                                                 <input id='food_when' name="start" class='form-control form-control-inline col-xs-9'>
                                             </div>
                                             <div class='col-lg-8 col-md-8 panel-body'>
@@ -380,22 +386,22 @@
                                                     <input id="food_city" type="text" class="form-control" placeholder="도시명" autocomplete="on" name="start">
                                                 </div>
                                             </div>
-                                        </div>
-                                    
-                                </div>
-                                <div id='comment_body' class="panel-body modal-padding-mobile">
+                                        </div>    
+                                    </div>
+                                    <div id='comment_body' class="panel-body modal-padding-mobile">
                                         <div class="form-group">
                                             <label for="comment" class='margin_label col-lg-12 col-sm-12 col-xs-12'>자세히</label>
                                             <textarea id='travel_detail4' class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button id='submit_travel' type="submit" class="btn btn-primary">등록하기</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
-                        </form>
+                    </form>
                     </div>
                 </div>
                 <!-- travel form end -->
