@@ -300,6 +300,7 @@ var showTravelForm = function() {
     } else {
         $('#createTravel').css('z-index', '-1');
         isPressNewBtn = true;
+        event.preventDefault();
         popupLoginWindow();
     }
 };

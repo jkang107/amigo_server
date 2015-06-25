@@ -169,6 +169,7 @@
 
         $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
             if(event.target.id == "login_name" && event.target.className != "dropdown-toggle") {
+                event.preventDefault();
                 $('.navbar-toggle:visible').click();
 
             }

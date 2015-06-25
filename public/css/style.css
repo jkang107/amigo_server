@@ -705,6 +705,7 @@ textarea {
 		width: 100%;
 		display: block;
 	}
+
 }
 
 /* Images Overlay
@@ -776,6 +777,7 @@ textarea {
 	} */
 	#login {
 		transform: translate(-50%, -50%);
+		left:50%;
 	}
 	.filter.filter_all {
 	  	width:97%;
@@ -841,6 +843,7 @@ textarea {
 		height: 14em;
 		margin-top: -7em;
 		margin-left: -9em;
+		left:46%;
 	}
 	.btn {
 		min-width: 60px;
@@ -860,6 +863,7 @@ textarea {
 @media (min-width:450px) and (max-width:767px) {
 	#login {
 		transform: translate(-50%, -50%);
+		left:50%;
 	}
 	.banner-caption h1{
 		font-size: 40px;
@@ -885,17 +889,16 @@ textarea {
 	}
 }
 @media (max-width:767px) {
-
 	.inner_text {
     	padding: 7px;
-	  margin: 1px;
-	  border: solid 1px #a1a1a1;
-	  border-radius: 5px;
-	  color: #445448;
-	  font-size: 90%;
-	  line-height: 40px;
-	  margin-right: 4px;
-	  display: inline-block;
+		margin: 1px;
+		border: solid 1px #a1a1a1;
+		border-radius: 5px;
+		color: #445448;
+		font-size: 90%;
+		line-height: 40px;
+		margin-right: 4px;
+		display: inline-block;
 	}
 	.img_div {
 		float: left;
@@ -959,7 +962,7 @@ textarea {
     }
     .panel-title span {
     	/*line-height: 35px;*/
-    	  line-height: 15px;
+    	line-height: 15px;
     	font-size: 85%;
     }
     .panel-title a {
