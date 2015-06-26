@@ -50,7 +50,13 @@ function sendLoginInfo(userInfo) {
 }
 
 function afterLogin(kakao_userInfo) {
-    $("#login_container").prepend('<img id="profil_img" src="' + kakao_userInfo.properties.thumbnail_image + '" class="img-circle profile">');
+    var thumbnail_url;
+    if(kakao_userInfo.properties.thumbnail_image == null) {
+        thumbnail_url = './images/profile.png';
+    } else {
+        thumbnail_url = kakao_userInfo.properties.thumbnail_image;
+    }
+    $("#login_container").prepend('<img id="profil_img" src="' + thumbnail_url + '" class="img-circle profile">');
     $("#login_name").text(kakao_userInfo.properties.nickname);
     $("#login_name").css({
         "float": "left",
@@ -66,7 +72,7 @@ function afterLogin(kakao_userInfo) {
     }
 
     localStorage.setItem('id', kakao_userInfo.id);
-    localStorage.setItem('thumbnail', kakao_userInfo.properties.thumbnail_image);
+    localStorage.setItem('thumbnail', thumbnail_url);
     localStorage.setItem('nickname', kakao_userInfo.properties.nickname);
 
 }
