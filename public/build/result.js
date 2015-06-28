@@ -1,4 +1,4 @@
-/* 2015-06-12 */ var preURL = "http://findyourtravelbuddy.herokuapp.com";
+/* 2015-06-28 */ var preURL = "http://findyourtravelbuddy.herokuapp.com";
 //var preURL = "";
 
 // kakaotalk
@@ -46,7 +46,13 @@ function sendLoginInfo(userInfo) {
 }
 
 function afterLogin(kakao_userInfo) {
-    $("#login_container").prepend('<img id="profil_img" src="' + kakao_userInfo.properties.thumbnail_image + '" class="img-circle profile">');
+    var thumbnail_url;
+    if(kakao_userInfo.properties.thumbnail_image === null) {
+        thumbnail_url = './images/profile.png';
+    } else {
+        thumbnail_url = kakao_userInfo.properties.thumbnail_image;
+    }
+    $("#login_container").prepend('<img id="profil_img" src="' + thumbnail_url + '" class="img-circle profile" alt="thumbnail">');
     $("#login_name").text(kakao_userInfo.properties.nickname);
     $("#login_name").css({
         "float": "left",
@@ -62,7 +68,7 @@ function afterLogin(kakao_userInfo) {
     }
 
     localStorage.setItem('id', kakao_userInfo.id);
-    localStorage.setItem('thumbnail', kakao_userInfo.properties.thumbnail_image);
+    localStorage.setItem('thumbnail', thumbnail_url);
     localStorage.setItem('nickname', kakao_userInfo.properties.nickname);
 
 }
@@ -87,6 +93,7 @@ function viewMyAccount() {
     //$('.dropdown-menu').dropdown('toggle');
     window.location.href = '/mylist';
 }
+
 function loginWithKakao() {
     /*// 로그인 창을 띄웁니다.
     Kakao.Auth.login({
@@ -104,8 +111,6 @@ function kakao_logout() {
     Kakao.Auth.logout();
     isLogin = false;
     afterLogout();
-    //$('.dropdown-menu').dropdown('toggle');
-    /*return false;*/
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -122,9 +127,10 @@ function initialize() {
 // Login window
 
 function popupLoginWindow() {
-    if(!isLogin) {
-       $("#login").css("display", "block");
-        $("#login_fade").css("display", "block"); 
+    if (!isLogin) {
+        $("#login").css("visibility", "visible");
+        $("#login_fade").css("display", "block");
+        event.preventDefault();
     }
 }
 
@@ -159,8 +165,9 @@ var chooseTravelType = function() {
 
 var addNewTravel = function() {
     $('#createTravel').modal('hide');
-    
+
     var travelType = $("#travel_type").find(".active").get(0).id;
+    var detail_txt;
 
     var travelInfo = {
         userId: localStorage.getItem("id"),
@@ -175,9 +182,9 @@ var addNewTravel = function() {
         city_to: null,
         transportation: null,
         tour_name: null,
-        comment: "카카오톡 ID: " + $("#kakaoID").val() + '<br>',
+        comment: null,
         kakao_thumbnail: localStorage.getItem("thumbnail")
-        
+
     };
 
     switch (travelType) {
@@ -186,47 +193,75 @@ var addNewTravel = function() {
             $("#travel_country").find(".active").each(function() {
                 countryArr.push($(this).text());
             });
-            travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#travel_date_from").val();
-            travelInfo['when_to'] = $("#travel_date_to").val();
-            travelInfo['country_from'] = countryArr;
-            travelInfo['comment'] += $("#travel_detail1").val();
+            var dateFromStr = $("#travel_date_from").val();
+            var dateToStr = $("#travel_date_to").val();
 
-            panelStyle = "panel-success";
+            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 여행해요 <i class="fa fa-quote-right"></i></span><br><br><span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + " - " + dateToStr + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryArr.toString() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> 카톡 ID: </span>' + $("#kakaoID").val() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail1").val().replace(/\n/g, '<br/>');
+
+            travelInfo["travel_type"] = travelType;
+            travelInfo["when_from"] = dateFromStr;
+            travelInfo["when_to"] = dateToStr;
+            travelInfo["country_from"] = countryArr;
+            travelInfo["comment"] = detail_txt;
+
+            //panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
+
+
             break;
         case "moveWith":
-            travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#move_when").val();
-            travelInfo['country_from'] = $("#move_from_country option:selected").val();
-            travelInfo['city_from'] = $("#move_from").val();
-            travelInfo['country_to'] = $("#move_to_country option:selected").val();
-            travelInfo['city_to'] = $("#move_to").val();
-            travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
-            travelInfo['comment'] += $("#travel_detail2").val();
+            dateFromStr = $("#move_when").val();
+            var countryFromStr = $("#move_from_country option:selected").val();
+            var cityFromStr = $("#move_from").val();
+            var countryToStr = $("#move_to_country option:selected").val();
+            var cityToStr = $("#move_to").val();
 
-            panelStyle = "panel-info";
+            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 이동해요 <i class="fa fa-quote-right"></i></span><br><br><span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryFromStr + "/" + cityFromStr + ' <i class="fa fa-long-arrow-right"></i> ' + countryToStr + "/" + cityToStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> 카톡 ID: </span>' + $("#kakaoID").val() + '<br><span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail2").val().replace(/\n/g, '<br/>');
+
+            travelInfo['travel_type'] = travelType;
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['country_from'] = countryFromStr;
+            travelInfo['city_from'] = cityFromStr;
+            travelInfo['country_to'] = countryToStr;
+            travelInfo['city_to'] = cityToStr;
+            travelInfo['transportation'] = $("#transportation_button").find(".active").children().get(0).id;
+            travelInfo['comment'] = detail_txt;
+
+            //panelStyle = "panel-info";
             titleImage = "taxi_64.png";
             break;
         case "tourWith":
-            travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#tour_date_from").val();
-            travelInfo['when_to'] = $("#tour_date_to").val();
-            travelInfo['country_from'] = $("#tour_contry option:selected").val();
-            travelInfo['tour_name'] = $("#tour_name").val();
-            travelInfo['comment'] += $("#travel_detail3").val();
+            dateFromStr = $("#tour_date_from").val();
+            var dateToStr = $("#tour_date_to").val();
+            var countryFromStr = $("#tour_contry option:selected").val();
+            var tourStr = $("#tour_name").val();
 
-            panelStyle = "panel-warning";
+            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 투어/트레킹해요 <i class="fa fa-quote-right"></i></span><br><br><span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + " - " + dateToStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryFromStr + "/" + tourStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> 카톡 ID: </span>' + $("#kakaoID").val() + '<br><span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail3").val().replace(/\n/g, '<br/>');
+
+            travelInfo['travel_type'] = travelType;
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['when_to'] = dateToStr;
+            travelInfo['country_from'] = countryFromStr;
+            travelInfo['tour_name'] = tourStr;
+            travelInfo['comment'] = detail_txt;
+
+            //panelStyle = "panel-warning";
             titleImage = "biking_64.png";
             break;
         case "foodWith":
-            travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = $("#food_when").val();
-            travelInfo['country_from'] = $("#food_country option:selected").val();
-            travelInfo['city_from'] = $("#food_city").val();
-            travelInfo['comment'] += $("#travel_detail4").val();
+            dateFromStr = $("#food_when").val();
+            countryFromStr = $("#food_country option:selected").val();
+            var cityFromStr = $("#food_city").val();
 
-            panelStyle = "panel-danger";
+            detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 식사해요 <i class="fa fa-quote-right"></i></span><br><br><span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryFromStr + "/" + cityFromStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> 카톡 ID: </span>' + $("#kakaoID").val() + '<br><span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail4").val().replace(/\n/g, '<br/>');
+
+            travelInfo['travel_type'] = travelType;
+            travelInfo['when_from'] = dateFromStr;
+            travelInfo['country_from'] = countryFromStr;
+            travelInfo['city_from'] = cityFromStr;
+            travelInfo['comment'] = detail_txt;
+
+            //panelStyle = "panel-danger";
             titleImage = "food_64.png";
             break;
 
@@ -239,19 +274,19 @@ var addNewTravel = function() {
 function returnTravelType(travelType) {
     switch (travelType) {
         case "travelWith":
-            panelStyle = "panel-success";
+            //panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
             break;
         case "moveWith":
-            panelStyle = "panel-info";
+            //panelStyle = "panel-info";
             titleImage = "taxi_64.png";
             break;
         case "tourWith":
-            panelStyle = "panel-warning";
+            //panelStyle = "panel-warning";
             titleImage = "biking_64.png";
             break;
         case "foodWith":
-            panelStyle = "panel-danger";
+            //panelStyle = "panel-danger";
             titleImage = "food_64.png";
             break;
     }
@@ -265,21 +300,23 @@ var showTravelForm = function() {
     } else {
         $('#createTravel').css('z-index', '-1');
         isPressNewBtn = true;
+        //event.preventDefault();
         popupLoginWindow();
     }
 };
 
 $("#login_fade").click(function() {
     $("#login_fade").css("display", "none");
-    $("#login").css("display", "none");
+    $("#login").css("visibility", "hidden");
 });
 
 $("#login_close_btn").click(function() {
     $("#login_fade").css("display", "none");
-    $("#login").css("display", "none");
+    $("#login").css("visibility", "hidden");
 });
 
 var tmp_new_travel;
+
 function createNewTravel(travel) {
     tmp_new_travel = travel;
     stampCurrentTime();
@@ -287,20 +324,19 @@ function createNewTravel(travel) {
 }
 var numOfTravel = 0;
 var info_div_width = 0;
+
 function createNewObject(travel, count) {
 
-    $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default " + panelStyle + "'></div>");
+    $("#accordion").prepend("<div id='object_" + count + "' class='mix panel panel-default'></div>");
 
     $("#object_" + count).append("<div class='panel-heading' role='tab' id='heading_" + count + "'><div class='panel-title mylist-panel-title'><a index=" + travel.index + " data-toggle='collapse' id='heading_t_" + count + "' class='clipped line_container' data-parent='#accordion' href='#collapse_" + count + "' aria-expanded='false' aria-controls='collapse_" + count + "'></a></div></div>");
 
     $("#object_" + count).append("<div id='collapse_" + count + "' class='panel-collapse collapse' role='tabpanel' aria-labelledby='collapse_" + count + "'><div class='panel-body'>" + travel.comment + "<br/></div></div>");
-    
+
     var _object = $("#heading_t_" + count);
 
-    // ----------test ----------
     var inner1 = $("<div class='img_div'></div>");
     _object.append(inner1);
-    //-----------test--------------
 
     //add kakaotalk
     inner1.append("<img src='" + travel.kakao_thumbnail + "' class='img-circle inner_list' alt='kakaotalk thumbnail' width='40' height='40'>");
@@ -308,9 +344,8 @@ function createNewObject(travel, count) {
     //add travel type
     inner1.append("<img src='./bootstrap/images/" + titleImage + "' class='inner_list' alt='travel' width='40' height='40'>");
 
-    // -------------------test ---------------
     var inner2;
-    if(info_div_width != undefined) {
+    if (info_div_width !== undefined && window.innerWidth < 768) {
         inner2 = $("<div class='info_div' style='width:" + info_div_width + "px'></div>");
     } else {
         inner2 = $("<div class='info_div'></div>");
@@ -319,8 +354,6 @@ function createNewObject(travel, count) {
 
     _object.append(inner2);
     _object = inner2;
-
-    // ---------------------------------------
 
 
     //add gender
@@ -341,34 +374,16 @@ function createNewObject(travel, count) {
     _object.append("<span id='_age' class='inner_text inner_text_gender'>" + tmp_age + "</span>");
 
 
-    //transportation
-    if (travel.transportation !== null) {
-        var tmp_trans = travel.transportation;
-        switch (tmp_trans) {
-            case "bus":
-                tmp_trans = "버스이동";
-                break;
-
-            case "taxi":
-                tmp_trans = "택시이동";
-                break;
-
-            case "metro":
-                tmp_trans = "지하철이동";
-                break;
-        }
-        _object.append("<span id='_transportation' class='inner_text inner_text_trans'>#" + tmp_trans + "</span>");
-    }
-
+    //add country
     var tmp_country_class;
-    if(travel.country_from instanceof Array || travel.country_from.split(",").length > 1) {
+    if (travel.country_from instanceof Array || travel.country_from.split(",").length > 1) {
         var tmp_travel_country_array = new Array;
-        if(typeof travel.country_from == 'string') {
+        if (typeof travel.country_from == 'string') {
             tmp_travel_country_array = travel.country_from.split(",");
         } else {
             tmp_travel_country_array = travel.country_from;
         }
-       for(var i = 0; i < tmp_travel_country_array.length; i++) {
+        for (var i = 0; i < tmp_travel_country_array.length; i++) {
             switch (tmp_travel_country_array[i]) {
                 case "멕시코":
                     tmp_country_class = 'mexico';
@@ -396,7 +411,7 @@ function createNewObject(travel, count) {
                     break;
             }
             $("#object_" + count).addClass(tmp_country_class);
-        } 
+        }
     } else {
         switch (travel.country_from) {
             case "멕시코":
@@ -426,23 +441,42 @@ function createNewObject(travel, count) {
         }
         $("#object_" + count).addClass(tmp_country_class);
     }
-    
+
     //add travel country_from
     var tmp_str_country;
-    if(typeof travel.country_from == 'string') {
+    if (typeof travel.country_from == 'string') {
         tmp_str_country = travel.country_from.split(",");
-        if(tmp_str_country.length > 2) {
-            tmp_str_country = tmp_str_country.slice(0,2).toString() + " 외 " + (tmp_str_country.length - 2) + "개국";
+        if (tmp_str_country.length > 2) {
+            tmp_str_country = tmp_str_country.slice(0, 2).toString() + " 외 " + (tmp_str_country.length - 2) + "개국";
         }
-        
+
     } else {
-        if(travel.country_from.length > 2) {
-            tmp_str_country = travel.country_from.slice(0,2) + " 외 " + (travel.country_from.length - 2) + "개국";
+        if (travel.country_from.length > 2) {
+            tmp_str_country = travel.country_from.slice(0, 2) + " 외 " + (travel.country_from.length - 2) + "개국";
         } else {
             tmp_str_country = travel.country_from.toString();
         }
     }
-    _object.append("<span id='_country_from' class='inner_text'>#" + tmp_str_country + "</span>");
+    _object.append("<span id='_country_from' class='inner_text inner_country'>" + tmp_str_country + "</span>");
+
+    //transportation
+    if (travel.transportation !== null) {
+        var tmp_trans = travel.transportation;
+        switch (tmp_trans) {
+            case "bus":
+                tmp_trans = "버스이동";
+                break;
+
+            case "taxi":
+                tmp_trans = "택시이동";
+                break;
+
+            case "metro":
+                tmp_trans = "지하철이동";
+                break;
+        }
+        _object.append("<span id='_transportation' class='inner_text inner_text_trans'>#" + tmp_trans + "</span>");
+    }
 
 
     //add travel city_to
@@ -470,36 +504,38 @@ function createNewObject(travel, count) {
     }
 
 
-    if(isMyListPage) {
-        if(window.innerWidth < 760) {
-            _object.parent().append("<span id='delete_" + count+ "'class='mylist-delete-btn delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
+    if (isMyListPage) {
+        if (window.innerWidth < 760) {
+            _object.parent().append("<span id='delete_" + count + "'class='mylist-delete-btn delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
 
-        } else { 
-            _object.append("<span id='delete_" + count+ "'class='mylist-delete-btn delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
+        } else {
+            _object.append("<span id='delete_" + count + "'class='mylist-delete-btn delete-item glyphicon glyphicon-remove-circle btn-lg' aria-hidden='true'></span>");
         }
         $("#delete_" + count).click(function(e) {
             console.log(e.target);
             var tmpIndex;
-            if(window.innerWidth < 760) {
+            if (window.innerWidth < 760) {
                 tmpIndex = parseInt($(e.target).prev().attr('index'));
             } else {
                 tmpIndex = parseInt(e.target.parentNode.parentNode.attributes.index.value);
-            }       
+            }
             bootbox.confirm({
                 size: 'small',
                 message: '정말 삭제하시겠습니까?',
                 callback: function(result) {
-                    if(result == true) {
+                    if (result === true) {
                         deleteItem(tmpIndex, parseInt(e.target.id.split("_")[1]));
-                    } 
+                    }
                 }
-            }); 
-            
+            });
+
         });
     }
 
-    if(isNewElement) {
-        $('#accordion').mixItUp('prepend', $("object_" + count), {filter: 'all'});
+    if (isNewElement) {
+        $('#accordion').mixItUp('prepend', $("object_" + count), {
+            filter: 'all'
+        });
         isNewElement = false;
     }
     count++;
@@ -520,6 +556,7 @@ function stampCurrentTime() {
 
 }
 var isNewElement = false;
+
 function sendToServer(travelInfo) {
     /*var target = document.getElementById('travelList_container');
     var spinner = new Spinner().spin();
@@ -536,9 +573,9 @@ function sendToServer(travelInfo) {
         //spinner.stop();
         console.log("Success Message from server : " + e);
         isNewElement = true;
-        numOfTravel ++;
+        numOfTravel++;
         createNewObject(tmp_new_travel, numOfTravel);
-         
+
     });
 
     deferred.error(function(e) {
@@ -588,7 +625,7 @@ function getMyList() {
     deferred = $.post(url, {
         kakaoid: localStorage.getItem("id")
     });
-    
+
 
     deferred.success(function(result) {
         spinner.stop();
@@ -606,6 +643,7 @@ function getMyList() {
     });
 }
 var tmp_delete_index = 0;
+
 function deleteItem(item, parentDivIndex) {
     /*var target = document.getElementById("#object_" + parentDivIndex);
     var spinner = new Spinner().spin();
@@ -616,7 +654,7 @@ function deleteItem(item, parentDivIndex) {
     deferred = $.post(url, {
         index: item
     });
-    
+
 
     deferred.success(function(result) {
         //spinner.stop();
@@ -637,7 +675,7 @@ $("input#sendMail").click(function() {
         from: $("#email2").val(),
         message: $("#message2").val()
     });
-    
+
 
     deferred.success(function(e) {
         console.log("Message from server : " + e);
@@ -653,10 +691,11 @@ $("input#sendMail").click(function() {
 });
 
 var isMyListPage = false;
+
 function checkLoginStatus() {
     if (localStorage.getItem("id") !== null && localStorage.getItem("thumbnail") !== null) {
         isLogin = true;
-        $("#login_container").prepend('<img id="profil_img" src="' + localStorage.getItem("thumbnail") + '" class="img-circle profile">');
+        $("#login_container").prepend('<img id="profil_img" src="' + localStorage.getItem("thumbnail") + '" class="img-circle profile" alt="profile">');
         $("#login_name").text(localStorage.getItem("nickname"));
         $("#login_name").css({
             "float": "left",
@@ -669,7 +708,7 @@ function checkLoginStatus() {
 
 function validate() {
     var kakaoID = $("#kakaoID");
-    if(!kakaoID.val()) {
+    if (!kakaoID.val()) {
         console.log(" This field is required");
         // Stop submission of the form
         e.preventDefault();
@@ -677,7 +716,9 @@ function validate() {
         console.log(" Good! ");
 
     }
-}/*** concat separator ***//*** concat separator ***/(function($) {
+}
+/*** concat separator ***//*** concat separator ***/
+(function($) {
     $(document).ready(function() {
 
         $(".banner-image").backstretch('images/DSC00605.JPG');
@@ -692,7 +733,7 @@ function validate() {
                 } else {
                     $("body").removeClass("fixed-header-on");
                 }
-            };
+            }
         });
 
         $(window).load(function() {
@@ -702,7 +743,7 @@ function validate() {
                 } else {
                     $("body").removeClass("fixed-header-on");
                 }
-            };
+            }
         });
 
         //Scroll Spy
@@ -756,7 +797,7 @@ function validate() {
                     $this.addClass('object-visible');
                 }
             });
-        };
+        }
 
         // Isotope filters
         //-----------------------------------------------
@@ -780,7 +821,7 @@ function validate() {
                     return false;
                 });
             });
-        };
+        }
 
         //Modal
         //-----------------------------------------------
@@ -839,6 +880,7 @@ function validate() {
 
         $('.navbar-collapse ul li a:not(.dropdown-toggle)').bind('click touchstart', function () {
             if(event.target.id == "login_name" && event.target.className != "dropdown-toggle") {
+                event.preventDefault();
                 $('.navbar-toggle:visible').click();
 
             }

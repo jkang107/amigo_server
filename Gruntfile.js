@@ -4,6 +4,21 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         
+        //htmlhint
+        htmlhint: {
+            options: {
+                'tag-pair':true,
+                'doctype-first': true,
+                'tag-self-close': true,
+                'id-unique': true,
+                'head-script-disabled': true,
+                'img-alt-require': true
+            },
+            src: [
+                'view/index.ejs'
+            ]
+        },
+
         //concat 설정
         concat:{
             options: {
@@ -39,10 +54,7 @@ module.exports = function(grunt) {
         },
         //jshint
         /*jshint:{
-            all: ['public/js/*.js'],
-            options:{
-                reporter: require('jshint-stylish')
-            }
+            all: ['public/js/*.js']
         },*/
 
         //cssmin
@@ -63,6 +75,7 @@ module.exports = function(grunt) {
 
     });
  
+    grunt.loadNpmTasks('grunt-htmlhint');
     // Load the plugin that provides the "uglify", "concat" tasks.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -72,7 +85,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // Default task(s).
-    //grunt.registerTask('default', ['concat', 'uglify', 'jshint', 'cssmin']); //grunt 명령어로 실행할 작업
-    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']); //grunt 명령어로 실행할 작업
+    grunt.registerTask('default', ['concat', 'uglify', 'jshint', 'cssmin']); //grunt 명령어로 실행할 작업
+    //grunt.registerTask('default', ['htmlhint', 'jshint', 'concat', 'uglify', 'cssmin']); //grunt 명령어로 실행할 작업
+    grunt.registerTask('default', ['htmlhint', 'concat', 'uglify', 'cssmin']); //grunt 명령어로 실행할 작업
  
 };

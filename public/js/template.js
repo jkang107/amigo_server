@@ -1,11 +1,3 @@
-/* Theme Name: Worthy - Free Powerful Theme by HtmlCoder
- * Author:HtmlCoder
- * Author URI:http://www.htmlcoder.me
- * Version:1.0.0
- * Created:November 2014
- * License: Creative Commons Attribution 3.0 License (https://creativecommons.org/licenses/by/3.0/)
- * File Description: Initializations of plugins 
- */
 
 (function($) {
     $(document).ready(function() {
@@ -22,7 +14,7 @@
                 } else {
                     $("body").removeClass("fixed-header-on");
                 }
-            };
+            }
         });
 
         $(window).load(function() {
@@ -32,7 +24,7 @@
                 } else {
                     $("body").removeClass("fixed-header-on");
                 }
-            };
+            }
         });
 
         //Scroll Spy
@@ -86,7 +78,7 @@
                     $this.addClass('object-visible');
                 }
             });
-        };
+        }
 
         // Isotope filters
         //-----------------------------------------------
@@ -110,7 +102,7 @@
                     return false;
                 });
             });
-        };
+        }
 
         //Modal
         //-----------------------------------------------

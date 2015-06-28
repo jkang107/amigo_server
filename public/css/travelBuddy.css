@@ -23,7 +23,7 @@ a:hover, a:focus { text-decoration: none; }
 }
 
 .modal-content {
-  background: url('../images/submit_bg.png');
+  background: url('/images/submit_bg.png');
 
 }
 

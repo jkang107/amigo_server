@@ -51,7 +51,7 @@ function sendLoginInfo(userInfo) {
 
 function afterLogin(kakao_userInfo) {
     var thumbnail_url;
-    if(kakao_userInfo.properties.thumbnail_image == null) {
+    if(kakao_userInfo.properties.thumbnail_image === null) {
         thumbnail_url = './images/profile.png';
     } else {
         thumbnail_url = kakao_userInfo.properties.thumbnail_image;
@@ -202,11 +202,11 @@ var addNewTravel = function() {
 
             detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 여행해요 <i class="fa fa-quote-right"></i></span><br><br><span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + " - " + dateToStr + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryArr.toString() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-check"></i> 카톡 ID: </span>' + $("#kakaoID").val() + '<br>' + '<span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail1").val().replace(/\n/g, '<br/>');
 
-            travelInfo['travel_type'] = travelType;
-            travelInfo['when_from'] = dateFromStr;
-            travelInfo['when_to'] = dateToStr;
-            travelInfo['country_from'] = countryArr;
-            travelInfo['comment'] = detail_txt;
+            travelInfo["travel_type"] = travelType;
+            travelInfo["when_from"] = dateFromStr;
+            travelInfo["when_to"] = dateToStr;
+            travelInfo["country_from"] = countryArr;
+            travelInfo["comment"] = detail_txt;
 
             //panelStyle = "panel-success";
             titleImage = "travel_man_64.png";
@@ -214,7 +214,7 @@ var addNewTravel = function() {
 
             break;
         case "moveWith":
-            var dateFromStr = $("#move_when").val();
+            dateFromStr = $("#move_when").val();
             var countryFromStr = $("#move_from_country option:selected").val();
             var cityFromStr = $("#move_from").val();
             var countryToStr = $("#move_to_country option:selected").val();
@@ -235,7 +235,7 @@ var addNewTravel = function() {
             titleImage = "taxi_64.png";
             break;
         case "tourWith":
-            var dateFromStr = $("#tour_date_from").val();
+            dateFromStr = $("#tour_date_from").val();
             var dateToStr = $("#tour_date_to").val();
             var countryFromStr = $("#tour_contry option:selected").val();
             var tourStr = $("#tour_name").val();
@@ -253,8 +253,8 @@ var addNewTravel = function() {
             titleImage = "biking_64.png";
             break;
         case "foodWith":
-            var dateFromStr = $("#food_when").val();
-            var countryFromStr = $("#food_country option:selected").val();
+            dateFromStr = $("#food_when").val();
+            countryFromStr = $("#food_country option:selected").val();
             var cityFromStr = $("#food_city").val();
 
             detail_txt = '<span class="comment_type_txt"><i class="fa fa-quote-left"></i> 같이 식사해요 <i class="fa fa-quote-right"></i></span><br><br><span class="comment_title_txt"><i class="fa fa-check"></i> When? </span>' + dateFromStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> Where? </span>' + countryFromStr + "/" + cityFromStr + '<br><span class="comment_title_txt"><i class="fa fa-check"></i> 카톡 ID: </span>' + $("#kakaoID").val() + '<br><span class="comment_title_txt"><i class="fa fa-comments"></i> Comment<br></span>' + " " + $("#travel_detail4").val().replace(/\n/g, '<br/>');
@@ -527,7 +527,7 @@ function createNewObject(travel, count) {
                 size: 'small',
                 message: '정말 삭제하시겠습니까?',
                 callback: function(result) {
-                    if (result == true) {
+                    if (result === true) {
                         deleteItem(tmpIndex, parseInt(e.target.id.split("_")[1]));
                     }
                 }
