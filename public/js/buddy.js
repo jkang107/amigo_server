@@ -56,7 +56,7 @@ function afterLogin(kakao_userInfo) {
     } else {
         thumbnail_url = kakao_userInfo.properties.thumbnail_image;
     }
-    $("#login_container").prepend('<img id="profil_img" src="' + thumbnail_url + '" class="img-circle profile">');
+    $("#login_container").prepend('<img id="profil_img" src="' + thumbnail_url + '" class="img-circle profile" alt="thumbnail">');
     $("#login_name").text(kakao_userInfo.properties.nickname);
     $("#login_name").css({
         "float": "left",
@@ -699,7 +699,7 @@ var isMyListPage = false;
 function checkLoginStatus() {
     if (localStorage.getItem("id") !== null && localStorage.getItem("thumbnail") !== null) {
         isLogin = true;
-        $("#login_container").prepend('<img id="profil_img" src="' + localStorage.getItem("thumbnail") + '" class="img-circle profile">');
+        $("#login_container").prepend('<img id="profil_img" src="' + localStorage.getItem("thumbnail") + '" class="img-circle profile" alt="profile">');
         $("#login_name").text(localStorage.getItem("nickname"));
         $("#login_name").css({
             "float": "left",
