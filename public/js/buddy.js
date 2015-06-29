@@ -32,6 +32,9 @@ Kakao.Auth.createLoginButton({
     }
 });
 
+
+var buddyApp = buddyApp || {};
+
 function sendLoginInfo(userInfo) {
     var url = preURL + "/sendLoginInfo";
 
